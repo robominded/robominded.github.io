@@ -12,22 +12,28 @@ body{
 	width:100%;
 	background-image: url('../images/header.jpeg'); 
 	background-size:cover;
-	height:230px;
+	height:190px;
 	border-style: hidden hidden solid hidden;
 	border-width: 4px;
 	border-color: #cc0066;
 }
+
+
 .titleText{
-	padding-top:40px;
-	font-size: 5em; 
+	padding-top:30px;
+	font-size: 4.2em; 
 	text-align: center; 
-	font-family: Gudea;
+	font-family: 'Amiko', sans-serif;
 }
 
 .subTitleText{
-	font-size:2.9em;
+	font-size:1.4em;
 	text-align: center; 
-	color: #57042e
+	color: #57042e;
+	letter-spacing: 6px;
+	font-family: 'Michroma', sans-serif;
+	margin-top: -22px;
+	padding-left: 15px;
 }
 
 /* Clear floats after the columns */
