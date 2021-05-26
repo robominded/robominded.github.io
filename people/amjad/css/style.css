@@ -1,0 +1,222 @@
+
+body, html, a,p, ol, ul, div, img{
+    margin:0px;
+	padding: 0px;
+}
+li{
+	padding: 5px;
+}
+td{
+	padding: 5px;
+	vertical-align: top;
+}
+body{
+	font-family: Rajdhani;
+}
+
+a.fab {font-weight:900}
+
+.whiteText{
+	color:#fff;
+}
+.lightBlueText{
+	color:#91a0ba;
+}
+
+/*.orangeText{
+	color:#FF9F1C;
+}*/
+.taupText{
+	color:#f2e8d0;
+}
+.redText{
+	color:#990000;
+}
+
+.blackBackground{
+background-color: #000;
+}
+
+.fontSize_1_2em{
+	font-size: 1.2em;
+}
+
+.fontSize_1_2em a span{
+	font-size: 1.2em;
+}
+
+.text_algin_center{
+	text-align: center;
+}
+.imam_Ali_text{
+font-size:1.2em;
+text-align: center; 
+font-family: Rajdhani;
+}
+
+#subTitle_text{
+	font-size:1.2em;
+	text-align: center; 
+}
+
+.sansFont{
+	font-family: sans-serif;
+}
+	
+.header{
+	width:100%;
+	margin:0px;
+	padding-right: 10px;
+}
+
+.headerbody{
+	max-width: 896px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.socialMediaImg{
+	height:40px;
+}
+
+.courseBin{
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	clear:both;
+}
+.courseBin_head{
+	width: 100%;
+	font-family: 'Mada', sans-serif;
+	font-size: 2em;
+	padding: 3px;
+	font-family: Courgette;
+}
+.courseBin_body{
+	width: 100%;
+	/*background-color:#FDFFFC; */
+	padding-bottom: 4px;
+	/*outline: 4px solid  #FF9F1C;*/
+}
+.courseBin_body ul
+{
+	list-style: none;
+}
+.courseBin_body a{
+	text-decoration: none;
+	color: #2968ce;
+	font-weight: 500;
+	font-size: 15px;
+	padding: 10px;
+	vertical-align: top;
+}
+
+a .orangeText {
+	font-size: 13px;
+	text-decoration: none;
+}
+
+a:hover .orangeText, a:hover .taupText {
+	color: red;
+	font-weight: bold;
+}
+
+a:hover .redText {
+	font-weight: bold;
+}
+
+a:visited .orangeText {
+	color: #d3bba0;
+}
+
+.news_img{
+	float: left; 
+	width: 230px; 
+	margin-right: 6px;
+	color:#990000;
+	margin-bottom: 6px;
+	padding: 6px;
+	/*outline: 1px solid #990000;*/
+}
+
+.footId{
+	/*background-color:#2EC4B6;*/
+	width:100%;
+	min-height:200px;
+	margin:0px;
+}
+
+.footbodyId{
+	max-width: 1024px;
+	font-size: 16px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.footerSection{
+	width:252px; 
+	display:inline-block
+}
+
+.footerSection, .footerSection a{
+	color: #e8e8e8;
+}
+.footerSectionHeader{
+	padding:5px;
+	font-size: 16px;
+}
+
+.footerSectionBody{
+	list-style-type: none;
+	font-size: 13px;
+}
+
+.footerSectionBody ul{
+	list-style-type: none;
+}
+
+#name{
+font-size: 5.8em; 
+text-align: center; 
+font-family: Gudea;	
+}
+#short_name{
+	display: none;
+	font-size: 4em;
+	text-align: center; 
+	font-family: Gudea;	
+}
+#short_subtitle_text{
+ 	display: none;
+}
+#subtitle_text{
+	font-size: 1.2em;
+}
+
+@media only screen and (max-width: 768px) {
+  #name {
+    display: none;
+  }
+   #subtitle_text{
+  	display: none;
+  }
+  #short_subtitle_text{
+  	display: block;
+  }
+  #short_name{
+  	display: block;
+  }
+  .imam_Ali_text{
+  	font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #name {
+    font-size: 2em;
+  }
+}
+
