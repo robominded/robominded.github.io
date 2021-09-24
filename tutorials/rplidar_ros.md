@@ -1,4 +1,4 @@
-# Installing RPLidar A1/A2 ROS node
+# Installing RPLidar A1/A2 ROS Node
 
 1. clone rplidar_ros repo into catkin_workspace/src <br> `git clone https://github.com/Slamtec/rplidar_ros.git`
 2. `cd ~/catkin_workspace`
