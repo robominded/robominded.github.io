@@ -17,4 +17,6 @@
      - `cd /usr/include` and `sudo ln -s opencv4/ opencv` 
 8. `cd ~/catkin_ws` 
 9. `catkin_make`
-    
+10. spin the lidar with `roslaunch rplidar_ros rplidar.launch`
+11. get Hector slam to work with `roslaunch hector_slam_launch tutorial.launch`
+12. Next Saving the map
