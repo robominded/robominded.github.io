@@ -19,4 +19,4 @@
 9. `catkin_make`
 10. spin the lidar with `roslaunch rplidar_ros rplidar.launch`
 11. get Hector slam to work with `roslaunch hector_slam_launch tutorial.launch`
-12. Next Saving the map
+12. Next Saving the map by the following these [instructions](https://github.com/robominded/robominded.github.io/blob/main/tutorials/save%20a%20map%20in%20ROS%20Noetic%20and%20Melodic.md)
