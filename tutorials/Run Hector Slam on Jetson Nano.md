@@ -12,7 +12,7 @@
     - replace `<arg name="odom_frame" default="nav"/>` with `<arg name="odom_frame" default="base_link"/>`
     - replace `<!--<node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 map nav 100"/>-->` with `<node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100"/>`
 6. `vim ~/catkin_ws/src/hector_slam/hector_slam_launch/launch/tutorial.launch`
-    - repalce  `<param name="/use_sim_time" value="true"/>` with `<param name="/use_sim_time" value="false"/>
+    - repalce  `<param name="/use_sim_time" value="true"/>` with `<param name="/use_sim_time" value="false"/>`
 7.  **On Ubuntu 18.04** I had to create a symbolic link before being able to build the catkin workspace
      - `cd /usr/include` and `sudo ln -s opencv4/ opencv` 
 8. `cd ~/catkin_ws` 
