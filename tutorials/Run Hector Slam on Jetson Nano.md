@@ -6,9 +6,9 @@
 2.  `cd ~/catkin_ws/src`
 3.  **On Ubuntu 18.04** `git -b melodic-devel clone https://github.com/tu-darmstadt-ros-pkg/hector_slam.git`
 4.  **On Ubuntu 20.04** `git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam.git`
-5.  Set the corrdinate Frame parameters according to http://wiki.ros.org/hector_slam/Tutorials/SettingUpForYourRobot
+5.  Set the corrdinate Frame parameters according to http://wiki.ros.org/hector_slam/Tutorials/SettingUpForYourRobot. For example: 
     - `vim ~/catkin_ws/src/hector_slam/hector_mapping/launch/mapping_default.launch`
-    - replace `<arg name="base_frame" default="base_footprint"/>` with <arg name="base_frame" default="base_link"/>` 
+    - replace `<arg name="base_frame" default="base_footprint"/>` with `<arg name="base_frame" default="base_link"/>` 
     - replace `<arg name="odom_frame" default="nav"/>` with `<arg name="odom_frame" default="base_link"/>`
     - replace `<!--<node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 map nav 100"/>-->` with `<node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100"/>`
 6. `vim ~/catkin_ws/src/hector_slam/hector_slam_launch/launch/tutorial.launch`
