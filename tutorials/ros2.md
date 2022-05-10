@@ -23,10 +23,11 @@ from launch_ros.actions import Node
 
 def generate_launcha_descripttion():
   return LaunchDescription([
-      launch_ros.actions.Node(
-          package='<package_name>', 
-          executable='<executable_name>',
-          output='screen'), ])
+      launch_ros.actions.Node( # generate a node with the 
+          package='<package_name>',  # package name, and 
+          executable='<executable_name>', # the cpp execuable name 
+          output='screen'), # print the output on this channel (screen in this case)
+          ])
 
 ```
 
