@@ -12,16 +12,16 @@ body{
 	width:100%;
 	background-image: url('../images/header.jpeg'); 
 	background-size:cover;
-	height:190px;
+	height:320px;
 	border-style: hidden hidden solid hidden;
-	border-width: 4px;
+	border-width: 2px;
 	border-color: #cc0066;
 }
 
 
 .titleText{
-	padding-top:30px;
-	font-size: 4.2em; 
+	padding-top:24px;
+	font-size: 3.6em; 
 	text-align: center; 
 	font-family: 'Amiko', sans-serif;
 }
@@ -36,6 +36,17 @@ body{
 	padding-left: 15px;
 }
 
+.researchMessage{
+	display: inline-block; 
+	width: 80%; 
+	background-color:#fff;
+	padding: 12px;
+	font-family: Arial, sans-serif;
+	color:rgb(93, 91, 91);
+	font-size: .9em;
+	line-height: 1.3em;
+}
+
 /* Clear floats after the columns */
 .clearFloat:after {
   content: "";
@@ -47,6 +58,7 @@ body{
 	font-size:1.8em; 
 	padding-top: 5px;
 	font-weight: bolder;
+	margin-left:-10px;
 }
 
 .sectionImg{
@@ -101,6 +113,11 @@ body{
 .projectDescription{
 	width: 64%;
 	display: inline-block;
+	padding: 6px;
+	font-family: Arial, sans-serif;
+	color:rgb(93, 91, 91);
+	font-size: .9em;
+	line-height: 1.3em;
 }
 .projectDescription p{
 	text-align: justify;
@@ -112,7 +129,6 @@ body{
     display: inline-block;
     width: 30%; 
     vertical-align: top;
-	padding: 1%;
 }
 .projectImage img{
 	width: 100%;
@@ -120,10 +136,10 @@ body{
 
 .links a {
   font-weight: bold;
-  background-color: #cc0066; /* Green */
+  background-color: #cc0066; 
   border: none;
   color: white;
-  padding: 5px 20px;
+  padding: 3px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -131,10 +147,11 @@ body{
   margin: 4px 2px;
   cursor: pointer;
   border-radius:20px;
+  font-size: 1em;
 }
 
 .links a:hover {
-  background-color: #57042e; /* Green */
+  background-color: #57042e; 
 }
 
 /* text styling */
@@ -154,8 +171,12 @@ body{
 	font-size: 1.3em;
 }
 
-.padding1em{
-	padding: 1em;
+.padding1emTop{
+	padding-top: 1em;
+}
+
+.padding_5em{
+	padding: .5em;
 }
 
 .text_algin_center{

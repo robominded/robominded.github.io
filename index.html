@@ -13,61 +13,55 @@
 </head>
 
 <body>
-	<div class="header" >
-		<div class="titleText headerTextColor">RoboMind</div>
-		<!-- <p class="subTitleText">Research Lab</p> -->
-		<div class="text_algin_center">
-			<a href="https://scholar.google.com/citations?user=hVezSVIAAAAJ&hl=en&authuser=1" target="_blank" class="headerTextColor material-icons" style="font-size:36px;">school</a> 
-			&nbsp; &nbsp; &nbsp; &nbsp; 
-			<a href="https://youtube.com/c/alelmcity" target="_blank" class="headerTextColor fab fa-youtube" style="font-size:36px"></a>
-			&nbsp; &nbsp; &nbsp; &nbsp; 
-			<a href="https://www.linkedin.com/in/amjad-yousef-majid-43576a75/" target="_blank" class="headerTextColor fab fa-linkedin" style="font-size:36px">
-			</a>&nbsp; &nbsp; &nbsp; &nbsp; 
-			<a href="https://stackoverflow.com/users/3105448/amjad" target="_blank" class="headerTextColor fab fa-stack-overflow" style="font-size:36px">
-			</a>&nbsp; &nbsp; &nbsp; &nbsp; 
-			<a href="https://github.com/amjadmajid" target="_blank" class="headerTextColor fab fa-github" style="font-size:32px"></a>
-		</div>
-	</div>
 
-	<div class="grayBackground clearFloat">
-		<div class="courseBin">
-			<!-- <p class="headerTextColor sectionHeader">Vision</p> -->
-			<img class="sectionImg" src="images/amj.png">
-			<p class="font13em padding1em"> 
-				Hello, I am <span class="headerTextColor"> Amjad Majid</span>, a researcher at the Delft University of Technology.
-			</p>
-			<p> 
-				My research focuses on robots navigation and coordination.
-				For that, I am using Deep (Reinforcement) Learning and Audio.
-				Next, I would like to expand my research to include emotional navigation (if fund is available).
-			</p> 					
-		</div>
-	</div>
+<div class="header" >
+	<div class="titleText headerTextColor">RoboMind</div>
+	<!-- <p class="subTitleText">Research Lab</p> -->
 
-	<div class="clearFloat">
-		<div class="courseBin">
-			<p class="headerTextColor sectionHeader">Patents</p>
-			<ol>
-				<li>
-					<a style=" font-size: 1.2em;" href="https://worldwide.espacenet.com/patent/search/family/055236867/publication/NL2015668B1?q=pn%3DNL2015668B1">Method and system for efficient access to spectrum database</a><br>
-					<!-- <a href="https://web.archive.org/web/20160121063554/http://tudelft.nl/">This patent was advertised on the main page of Delft University of Technology under the title "Mobiele Communicatie via 'White Spaces'- octrooi" [click] </a> -->
-				</li>
-				<li>
-					<a style=" font-size: 1.2em;" href="https://patents.google.com/patent/WO2020005058A1">
-						Power interrupt immune software execution
-					</a>
-				</li>
-				<li>
-					<a style=" font-size: 1.2em;" href="https://patents.google.com/patent/NL2023646B1">
-						Battery-less sensor network
-					</a>
-				</li>
-			</ol>
-		</div>
-	</div>
+	<div style="box-sizing: border-box; padding-right: 100px; " class="courseBin">
+		<!-- <p class="headerTextColor sectionHeader">Vision</p> -->
+		<img style="display: inline-block;" class="sectionImg" src="images/amj.png">
+		<p style="display: inline-block; 
+				font-weight: bold;
+				width: 82%; 
+				background-color: rgb(240, 239, 240); 
+				 border-radius:0  40px 40px 0;" 
+				 class="font13em padding_5em"> 
+			Hello, I am <span class="headerTextColor"> Amjad Majid</span>, a researcher at the Delft University of Technology.
+		</p>
+		<p class="researchMessage"> 
+			My research focuses on robots navigation and coordination.
+			For that, I am using Deep (Reinforcement) Learning and Audio.
+			Next, I would like to expand my research to include emotional navigation (if fund is available). 
 
-<div class="grayBackground">
-	<div class="courseBin">
+		</p> 	
+	</div>
+</div>
+
+<div style="margin-top: -21px;" class="links text_algin_center">
+	<a href="#patents"> Patents </a> <span>&#160;</span> <span>&#160;</span>
+	<a href="#tutorials"> Tutorials</a>  <span>&#160;</span> <span>&#160;</span>
+	<a href="#publications"> Publications</a>
+</div>	
+
+<!-- <div class="clearFloat grayBackground">
+	<div style="box-sizing: border-box; padding-right: 100px; " class="courseBin">
+		<br>	<br>
+		<img style="display: inline-block;" class="sectionImg" src="images/amj.png">
+		<p style="display: inline-block; width: 82%; background-color: azure;  border-radius:0  40px 40px 0;" class="font13em padding_5em"> 
+			Hello, I am <span class="headerTextColor"> Amjad Majid</span>, a researcher at the Delft University of Technology.
+		</p>
+		<p style="margin-left: 1%; display: inline-block; width: 80%; padding: 8px;" class="padding1emTop"> 
+			My research focuses on robots navigation and coordination.
+			For that, I am using Deep (Reinforcement) Learning and Audio.
+			Next, I would like to expand my research to include emotional navigation (if fund is available).
+		</p> 	
+		<br><br>
+	</div>
+</div> -->
+<br>
+<div>
+	<div id="publications" class="courseBin">
 		<p class="headerTextColor sectionHeader">Publications</p>
 		
 		<div class="projectHead">
@@ -133,49 +127,83 @@
 	</div>
 </div>
 
-	<div>	
-		<div class="courseBin" >
-			<p class="headerTextColor sectionHeader" >Hands-on</p>
-			<ol>
-				<li><a href="tutorials/odrpi/ODRPI.html"> Object Detection On Raspberry
-					Pi Using OpenCV DNN</a></li>
-				<li><a href="tutorials/YDLidar/Install-YDlidar-on-Linux.html"> Install
-					YDLidar.X4 on Linux</a></li>
-				<li><a href="https://github.com/robominded/robominded.github.io/blob/main/tutorials/rplidar_ros.md"> Install RPLidar A1/A2 ROS Node</a></li>
-				<li><a href="https://github.com/amjadmajid/jetson_csi_cam/"> Getting a CSI camera feed on Jetson Nano</a></li>
-			</ol>
-		</div>
-			
 
+
+
+<div class="clearFloat grayBackground">
+	<div id="patents" class="courseBin">
+		<p class="headerTextColor sectionHeader">Patents</p>
+		<ul>
+			<li class="links">
+				<a href="https://worldwide.espacenet.com/patent/search/family/055236867/publication/NL2015668B1?q=pn%3DNL2015668B1">
+				Method and system for efficient access to spectrum database
+				</a>
+			</li>
+			<li class="links" >
+				<a href="https://patents.google.com/patent/WO2020005058A1">
+					Power interrupt immune software execution
+				</a>
+			</li>
+			<li class="links" >
+				<a href="https://patents.google.com/patent/NL2023646B1">
+					Battery-less sensor network
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+<div>	
+	<div  id="tutorials" class="courseBin" >
+		<p class="headerTextColor sectionHeader" >Tutorials</p>
+		<ol>
+			<li><a href="tutorials/drl/qlearning.html"> Q Learning</a></li>
+			<li><a href="tutorials/odrpi/ODRPI.html"> Object Detection On Raspberry
+				Pi Using OpenCV DNN</a></li>
+			<li><a href="tutorials/YDLidar/Install-YDlidar-on-Linux.html"> Install
+				YDLidar.X4 on Linux</a></li>
+			<li><a href="https://github.com/robominded/robominded.github.io/blob/main/tutorials/rplidar_ros.md"> Install RPLidar A1/A2 ROS Node</a></li>
+			<li><a href="https://github.com/amjadmajid/jetson_csi_cam/"> Getting a CSI camera feed on Jetson Nano</a></li>
+		</ol>
+	</div>
+</div>
+
+
+
+
+<div class="clearFloat whiteText" style="background-color: #57042e;" >
+
+	<div class="text_algin_center padding1emTop">
+		<a href="https://scholar.google.com/citations?user=hVezSVIAAAAJ&hl=en&authuser=1" target="_blank" class="whiteText material-icons" style="font-size:36px;">school</a> 
+		&nbsp; &nbsp; &nbsp; &nbsp; 
+		<a href="https://youtube.com/c/alelmcity" target="_blank" class="whiteText fab fa-youtube" style="font-size:36px"></a>
+		&nbsp; &nbsp; &nbsp; &nbsp; 
+		<a href="https://www.linkedin.com/in/amjad-yousef-majid-43576a75/" target="_blank" class="whiteText fab fa-linkedin" style="font-size:36px">
+		</a>&nbsp; &nbsp; &nbsp; &nbsp; 
+		<a href="https://stackoverflow.com/users/3105448/amjad" target="_blank" class="whiteText fab fa-stack-overflow" style="font-size:36px">
+		</a>&nbsp; &nbsp; &nbsp; &nbsp; 
+		<a href="https://github.com/amjadmajid" target="_blank" class="whiteText fab fa-github" style="font-size:32px"></a>
 	</div>
 
-	<div class="clearFloat whiteText" style="background-color: #57042e;" >
-		<div class="courseBin">
-			<div class="whiteText sectionHeader">Contact</div>
-			<table>
-				<tr>
-					<td>
-						Gmail ID:
-					</td>
-					<td>
-						amjad.y.majid
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Mobile: 
-					</td>
-					<td>
-						+31616955224
-					</td>
-				</tr>
-			</table>
-			<br>
-			<br>
-		</div>
-			<p style="text-align: center; color: #f5248c">RoboMind | TU Delft</p>
-			<br>
+	<div class="courseBin">
+		<div class="whiteText sectionHeader">Contact</div>
+		<table>
+			<tr>
+				<td>Gmail ID: </td> <td>amjad.y.majid</td>
+			</tr>
+			<tr>
+				<td>Mobile: </td> <td>+31616955224</td>
+			</tr>
+		</table>
+		<br> <br>
 	</div>
+		<p style="text-align: center; color: #f5248c">RoboMind | TU Delft</p>
+		<br>
+</div>
+
+
 
 </body>
 </html>
