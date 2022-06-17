@@ -149,6 +149,18 @@ body{
 	color: #fff;
 }
 
+.font13em{
+	font-size: 1.3em;
+}
+
+.padding1em{
+	padding: 1em;
+}
+
+.text_algin_center{
+	text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
 	.titleText{
 		font-size: 4em;
@@ -199,8 +211,6 @@ body{
 }
 
 }
-
-
 
 
 
