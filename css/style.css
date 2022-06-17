@@ -110,8 +110,9 @@ body{
 	height: 100%;
 	overflow: auto;
     display: inline-block;
-    width: 34%; 
+    width: 30%; 
     vertical-align: top;
+	padding: 1%;
 }
 .projectImage img{
 	width: 100%;
