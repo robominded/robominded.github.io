@@ -9,6 +9,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Gudea|Reem+Kufi|Rajdhani" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script> $(function(){ $("#tutrial_widget").load("papgeElements/tutorial_widget.html"); }); </script> 
 	<title>roboMind</title>
 </head>
 
@@ -26,7 +28,7 @@
 				width: 82%; 
 				background-color: rgb(240, 239, 240); 
 				 border-radius:0  40px 40px 0;" 
-				 class="font13em padding_5em"> 
+				 class="font1_25em padding_5em"> 
 			Hello, I am <span class="headerTextColor"> Amjad Majid</span>, a researcher at the Delft University of Technology.
 		</p>
 		<p class="researchMessage"> 
@@ -44,21 +46,6 @@
 	<a href="#publications"> Publications</a>
 </div>	
 
-<!-- <div class="clearFloat grayBackground">
-	<div style="box-sizing: border-box; padding-right: 100px; " class="courseBin">
-		<br>	<br>
-		<img style="display: inline-block;" class="sectionImg" src="images/amj.png">
-		<p style="display: inline-block; width: 82%; background-color: azure;  border-radius:0  40px 40px 0;" class="font12em padding_5em"> 
-			Hello, I am <span class="headerTextColor"> Amjad Majid</span>, a researcher at the Delft University of Technology.
-		</p>
-		<p style="margin-left: 1%; display: inline-block; width: 80%; padding: 8px;" class="padding1emTop"> 
-			My research focuses on robots navigation and coordination.
-			For that, I am using Deep (Reinforcement) Learning and Audio.
-			Next, I would like to expand my research to include emotional navigation (if fund is available).
-		</p> 	
-		<br><br>
-	</div>
-</div> -->
 <br>
 <div>
 	<div id="publications" class="courseBin">
@@ -123,7 +110,7 @@
 			</div>
 		</div>		
 		
-		<div class="font12em padding1em"> For more <a href="https://scholar.google.com/citations?user=hVezSVIAAAAJ&hl=en"> Google Scholar ...</a> </div>
+		<div class="font12em padding1em links"> For more see <a href="https://scholar.google.com/citations?user=hVezSVIAAAAJ&hl=en"> Google Scholar ...</a> </div>
 	</div>
 </div>
 
@@ -158,6 +145,8 @@
 <div>	
 	<div  id="tutorials" class="courseBin" >
 		<p class="headerTextColor sectionHeader" >Tutorials</p>
+
+		<div id="include_header"></div>
 		<ol>
 			<li><a href="tutorials/drl/qlearning.html"> Q Learning</a></li>
 			<li><a href="tutorials/odrpi/ODRPI.html"> Object Detection On Raspberry
