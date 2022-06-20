@@ -1,25 +1,54 @@
-<div style="width: 180px; 
-            height:240px;
-            box-sizing: border-box;  
-            display: inline-block;
-            background-color: beige;">
+<style>
+.widget{
+    width: 180px; 
+    height:240px;
+    box-sizing: border-box;
+    float: left;
+    margin-right: 6px;
+    background-color: beige;
+}
 
+.img_div {
+    height:50%;
+    overflow: hidden;
+    background-color: brown;
+    box-sizing: border-box;  
+    border: 2px solid brown;
+}
+
+.txt_div {
+    height:50%;
+    background-color:aliceblue;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 6px;
+}
+
+</style>
+
+<div class="widget">
     <a href="tutorials/drl/index.html">
-        <div style="height:50%;
-                    background-color: brown;
-                    box-sizing: border-box;  
-                    display: inline-block;
-                    border: 2px solid brown;">
-
-                    <img style="max-width: 100%; vertical-align: middle; "src="../images/drl.jpeg">
+        <div class="img_div">
+            <img style="max-width: 100%; vertical-align: middle; "src="../images/drl.jpeg">
         </div>
-        <div style="height:50%;
-                    background-color:aliceblue;
-                    box-sizing: border-box;  
-                    display: inline-block;">
-                    
-                        <span style="font-weight:bold;">(Deep) Reinforcement Learning.</span> From the basics to the advance level. 
-                    
+        <div class="txt_div">       
+            (Deep) Reinforcement Learning tutorials. 
         </div>
     </a>
+</div>
+
+
+<div class="widget">
+    <a href="tutorials/#">
+        <div class="img_div">
+            <img style="max-width: 100%; vertical-align: middle; "src="../images/ros.png">
+        </div>
+        <div class="txt_div">        
+            Robot Operating System tutorials
+        </div>
+    </a>
+</div>
+
+<div style="clear: both;">
+    <br>
 </div>
