@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">	
+    <!-- the following three lines to enable public comments -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/agate.min.css">
+
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Amiko&family=Michroma&family=Rajdhani&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Gudea|Reem+Kufi|Rajdhani" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script> $(function(){ $("#include_page_header").load("../../pageElements/header.html"); }); </script> 
+	<title>roboMind</title>
+</head>
+
+<body>
+<div id="include_page_header"></div>
+
+<div class="lesson">  <!-- Begin of lesson -->
+<p class="headerTextColor lessonHeader">Creating a Package in ROS 2</p>
+
+
+<div class="moduleHeader"> Creating a Package in ROS 2</div>
+<div class="module">
+<ol>
+<li>
+    Create a workspace 
+<pre>
+<code class="shell">cd 
+mkdir -p dev_ws/src
+cd dev_ws
+colcon build --symlink-install 
+</code></pre>
+<code>--symlink-install</code> tells colcon to use symbolic links when possible 
+instead of copying files. It is generally recommened. 
+</li>
+
+<li>
+    Create a package
+<pre>
+<code class="shell">cd src
+ros2 pkg create --build-type ament_cmake new_package
+</code></pre>
+</li>
+
+<li>
+    Create a launch directory and launch files
+<pre>
+<code class="shell">mkdir new_package/launch
+touch new_package/launch/talker.launch.py
+touch new_package/launch/listener.launch.py
+</code></pre>
+</li>
+
+<li>
+    Edit the launch files. Add the following to the <code>talker.launch.py</code>
+<pre>
+<code class="python">from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def launchDescription():
+    return LaunchDescription([
+        Node(
+        package='new_package', 
+        executable='talker'
+        )
+    ])
+</code></pre>
+</li>
+
+
+<li>
+    Edit the launch files. Add the following to the <code>listener.launch.py</code>
+<pre>
+<code class="python">from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def launchDescription():
+    return LaunchDescription([
+        Node(
+        package='new_package', 
+        executable='listener'
+        )
+    ])
+</code></pre>
+</li>
+
+<li>
+    Add the following line to <code>CMakeLists.txt</code>, so CMake knows about the launch directory.
+<pre>
+<code class="CMake">install(DIRECTORY launch 
+    DESTINATION share/${PROJECT_NAME})
+</code></pre>
+</li>
+
+<li>
+    Add the following package dependencies in the <code>package.xml</code>, so colcon building system
+    knows about the packages dependencies.
+<pre>
+<code class="xml">&lt;exec_depend&gt;demo_nodes_cpp&lt;/exec_depend&gt;
+&lt;exec_depend&gt;demo_nodes_py&lt;/exec_depend&gt;
+</code></pre>
+</li>
+
+</ol>
+
+		
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</div> <!-- End of lesson -->
+
+<div class="clearFloat whiteText" style="background-color: #57042e;" >
+    <div class="lesson">
+        <div class="whiteText lessonHeader">Contact</div>
+        <table>
+            <tr>
+                <td>Gmail ID:</td> <td>amjad.y.majid</td>
+            </tr>
+            <tr>
+                <td>Mobile: </td> <td>+31616955224</td>
+            </tr>
+        </table>
+        <br> <br>
+    </div>
+    <p style="text-align: center; color: #f5248c">RoboMind | TU Delft</p>
+    <br>
+</div>
+
+</body>
+</html>
