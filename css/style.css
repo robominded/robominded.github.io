@@ -16,7 +16,7 @@ body{
 	width:100%;
 	background-image: url('../images/header.jpeg'); 
 	background-size:cover;
-	height:320px;
+	/* height:320px; */
 	border-style: hidden hidden solid hidden;
 	border-width: 2px;
 	border-color: #cc0066;
@@ -187,7 +187,7 @@ body{
 	text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
 	.titleText{
 		font-size: 4em;
 		padding-top:20px;
@@ -236,7 +236,7 @@ body{
 	display: inline-block;
 }
 
-}
+} */
 
 
 
