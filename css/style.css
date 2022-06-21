@@ -62,7 +62,6 @@ body{
 	font-size:1.8em; 
 	padding-top: 5px;
 	font-weight: bolder;
-	margin-left:-10px;
 }
 
 .sectionImg{
@@ -105,7 +104,7 @@ body{
 
 .moduleHeader{
 	font-weight: bold;
-	font-size: 1.4em;
+	font-size: 1.3em;
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
@@ -147,7 +146,6 @@ body{
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius:20px;
@@ -157,6 +155,24 @@ body{
 .links a:hover {
   background-color: #57042e; 
 }
+
+.list_links a {
+	font-weight: bold;
+	border-bottom: 1px solid  #cc0066;
+	color:#cc0066;
+	padding: 3px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1.25em;
+	cursor: pointer;
+	margin-bottom: 8px;
+  }
+  
+  .list_links a:hover {
+	border-bottom: 2px solid  #cc0066;
+  }
+  
 
 /* text styling */
 .headerTextColor{
