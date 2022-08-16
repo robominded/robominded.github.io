@@ -60,7 +60,7 @@ body{
 
 .lessonHeader{
 	font-size:1.8em; 
-	padding-top: 5px;
+	padding-bottom: 10px;
 	font-weight: bolder;
 }
 
@@ -98,7 +98,7 @@ body{
 	max-width: 1024px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0px 5px 20px 5px;
+	padding: 0px 5px 40px 5px;
 	text-align: justify;
 }
 
