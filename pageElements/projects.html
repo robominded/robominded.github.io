@@ -1,6 +1,7 @@
 <div id="publications" class="lesson">
 	<p class="headerTextColor lessonHeader">Projects</p>
 
+    <!-- Poject Start -->
 	<div class="moduleHeader collapsible">
         O_Robot: A MSP432-based differential drive robot 
 	</div>
@@ -12,30 +13,26 @@
 			</p> 
 			<img class="projectImage" src="images/ti_robot.jpeg"> 
 		<div class="links">
-			<!-- <a href="https://github.com/amjadmajid/ipRobot/blob/master/Latex/Thesis/Final_Thesis_Koen_Schaper_11-12-2017.pdf"> Paper</a>  -->
 			<a target="_blank" href="https://github.com/amjadmajid/O_Robot"> Code</a> 
 			<a target="_blank" href="https://www.youtube.com/watch?v=fOMYusDR_QA"> Video</a> 
 		</div>
 	</div>		
 	
+    <!-- Poject Start -->
+	<div class="moduleHeader collapsible">
+        R_Car: Raspberry Pi Remotely Controlled Car with Object Detection   
+	</div>
+	<div class="module content">
+			<p class="projectDescription" >
+                In this project I developed a Raspberry pi based robot car that can detect and classify objects. For that it uses SSD Mobilenet which is trained on the COCO dataset. 
+                The code is written in <code>Python</code> using single and multiple processes approaches. The car is controlled by a Joystick via a bluetooth connection. <br>
+                The project can be used for educational purposes such as teaching (i) realtime systems, (ii) basic deep learning concepts, and (iii) some basic concepts in robotics.   
+			</p> 
+			<img class="projectImage" src="images/rpi_car.jpeg"> 
+		<div class="links">
+			<a target="_blank" href="https://github.com/amjadmajid/Remote-Controlled-Car-With-Object-Detection-Capabilities"> Code</a> 
+			<a target="_blank" href="https://www.youtube.com/watch?v=fOMYusDR_QA"> Video</a> 
+		</div>
+	</div>		
 	<div class="font12em padding1em links"> For more see <a href="projects/index.html"> LINK ...</a> </div>
 </div>
-
-
-<!-- <script src="js/collapsible.js"></script> -->
-<!-- <script>
-var coll = document.getelementsbyclassname("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addeventlistener("click", function() {
-    this.classlist.toggle("active");
-    var content = this.nextelementsibling;
-    if (content.style.maxheight){
-      content.style.maxheight = null;
-    } else {
-      content.style.maxheight = content.scrollheight + "px";
-    } 
-  });
-}
-</script> -->
