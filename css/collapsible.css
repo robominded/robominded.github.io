@@ -1,0 +1,36 @@
+.collapsible {
+    background-color: #e5e5e5;
+    /* color: white; */
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: rgb(147, 147, 147);
+    color: white;
+  }
+  
+  .collapsible:after{
+    content: '\25BC';
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after{
+    content: "\25B2";
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }

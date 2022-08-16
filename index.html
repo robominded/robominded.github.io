@@ -4,6 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">	
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/collapsible.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Amiko&family=Michroma&family=Rajdhani&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Gudea|Reem+Kufi|Rajdhani" rel="stylesheet">
@@ -53,10 +54,10 @@
 	<div id="publications" class="lesson">
 		<p class="headerTextColor lessonHeader">Publications</p>
 		
-		<div class="moduleHeader">
+		<div class="moduleHeader collapsible">
 			Deep Reinforcement Learning VS Evolution Strategies: A Comparative Survey
 		</div>
-		<div class="module">
+		<div class="module content">
 			<p class="projectDescription">
 				Deep Reinforcement Learning (DRL) and Evolution Strategies (ESs) have surpassed human-level control 
 				in many sequential decision-making problems, yet many open challenges still exist. To get insights 
@@ -73,10 +74,10 @@
 			</div>
 		</div>
 
-		<div class="moduleHeader">
+		<div class="moduleHeader collapsible">
 			Lightweight Audio Source Localization for Swarm Robots
 		</div>
-		<div class="module">
+		<div class="module content">
 			<img class="projectImage" src="images/audioCar.jpeg">
 			<p class="projectDescription">
 			The ability to localize a sound source is essential for safe integration of robots in our society.
@@ -92,10 +93,10 @@
 			</div>
 		</div>				
 
-		<div class="moduleHeader">
+		<div class="moduleHeader collapsible">
 			Batteryless Swarm Robots
 		</div>
-		<div class="module">
+		<div class="module content">
 				<p class="projectDescription" >
 				Tiny robots can be used for different applications such as surveillance and search and rescue operations. 
 				However, these robots have limited operation time due their limited energy storage.
@@ -195,7 +196,23 @@
 		<br>
 </div>
 
+<script src="js/collapsible.js"></script>
 
+<!-- <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
 
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script> -->
 </body>
 </html>
