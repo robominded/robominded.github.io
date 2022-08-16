@@ -1,0 +1,41 @@
+<div id="publications" class="lesson">
+	<p class="headerTextColor lessonHeader">Projects</p>
+
+	<div class="moduleHeader collapsible">
+        O_Robot: A MSP432-based differential drive robot 
+	</div>
+	<div class="module content">
+			<p class="projectDescription" >
+                In this project, I modeled a differential drive robots using nested <code>C</code> structs. Then, I used PID controllers to develop basic robotic behaviors such as go-to-goal and obstacles
+                avoidance.  I used TI RSLK an MSP432-based robot. O_Robot senses the world through three infrared sensors. <br>
+                This project can be used for educational purposes such teaching (i) differential drive robot kinematics, (ii) translation between different frame of references, (iii) basic control theory.  
+			</p> 
+			<img class="projectImage" src="images/ti_robot.jpeg"> 
+		<div class="links">
+			<!-- <a href="https://github.com/amjadmajid/ipRobot/blob/master/Latex/Thesis/Final_Thesis_Koen_Schaper_11-12-2017.pdf"> Paper</a>  -->
+			<a target="_blank" href="https://github.com/amjadmajid/O_Robot"> Code</a> 
+			<a target="_blank" href="https://www.youtube.com/watch?v=fOMYusDR_QA"> Video</a> 
+		</div>
+	</div>		
+	
+	<div class="font12em padding1em links"> For more see <a href="projects/index.html"> LINK ...</a> </div>
+</div>
+
+
+<!-- <script src="js/collapsible.js"></script> -->
+<!-- <script>
+var coll = document.getelementsbyclassname("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addeventlistener("click", function() {
+    this.classlist.toggle("active");
+    var content = this.nextelementsibling;
+    if (content.style.maxheight){
+      content.style.maxheight = null;
+    } else {
+      content.style.maxheight = content.scrollheight + "px";
+    } 
+  });
+}
+</script> -->

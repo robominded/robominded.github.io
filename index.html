@@ -13,13 +13,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script> $(function(){ $("#tutorial_widget").load("pageElements/tutorial_widget.html"); }); </script> 
     <script> $(function(){ $("#publications_id").load("pageElements/publications.html"); }); </script> 
+    <script> $(function(){ $("#projects_id").load("pageElements/projects.html"); }); </script> 
+	
+	<script src="js/collapsible.js"></script>
 	<title>roboMind</title>
 </head>
 
-<body>
+<body onload="collapsible()">
 
 <div class="header" >
-	<p style="background-color:#000; color:#fff">The website is under construction</p>
+	<p class="text_algin_center" style="background-color:#000; color:#fff;">The website is under construction</p>
 	<div class="titleText headerTextColor">RoboMind</div>
 	<!-- <p class="subTitleText">Research Lab</p> -->
 
@@ -38,7 +41,6 @@
 			My research focuses on robots navigation and coordination.
 			For that, I am using Deep (Reinforcement) Learning and Audio.
 			Next, I would like to expand my research to include emotional navigation (if fund is available &#128513;). 
-
 		</p> 	
 	</div>
 	<br><br>
@@ -48,7 +50,7 @@
 	<a href="#patents"> Patents </a> <span>&#160;</span> 
 	<a href="#tutorials"> Tutorials</a>  <span>&#160;</span> 
 	<a href="#publications"> Publications</a> <span>&#160;</span>
-    <a href="apps/rasm/index.html"> Whiteboard</a> <span>&#160;</span>
+    <a href="apps/rasm/index.html"> Whiteboard &#9998;</a> <span>&#160;</span>
 	
 </div>	
 
@@ -78,6 +80,8 @@
 	</div>
 </div>
 
+
+<div id="projects_id"></div>
 
 
 <div>	
