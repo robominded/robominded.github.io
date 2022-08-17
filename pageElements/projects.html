@@ -2,7 +2,7 @@
 	<p class="headerTextColor lessonHeader">Projects</p>
 
     <!-- Poject Start -->
-	<div class="moduleHeader collapsible">
+	<div onclick="collapsible(this)" class="moduleHeader collapsible">
         Backscatter Network: A Network of Computational RFIDs
 	</div>
 	<div class="module content">
@@ -20,7 +20,7 @@
 	</div>		
 	
     <!-- Poject Start -->
-	<div class="moduleHeader collapsible">
+	<div onclick="collapsible(this)" class="moduleHeader collapsible">
         Memory Manager and Task Executor for Battery-less Energy Harvesting Devices
 	</div>
 	<div class="module content">
@@ -37,8 +37,8 @@
 		</div>
 	</div>		
     <!-- Poject Start -->
-	<div class="moduleHeader collapsible">
-        O_Robot: A MSP432-based differential drive robot 
+	<div onclick="collapsible(this)"  class="moduleHeader collapsible">
+         O_Robot: A MSP432-based differential drive robot 
 	</div>
 	<div class="module content">
 			<p class="projectDescription" >
@@ -54,7 +54,7 @@
 	</div>		
 	
     <!-- Poject Start -->
-	<div class="moduleHeader collapsible">
+	<div onclick="collapsible(this)" class="moduleHeader collapsible">
         R_Car: Raspberry Pi Remotely Controlled Car with Object Detection   
 	</div>
 	<div class="module content">
@@ -76,22 +76,3 @@
 </div>
 
 
-<!-- This is an ugly workaround to ensure that this js code run after the 
-html elements has been included -->
-<script>
-
-var coll = document.getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
-    });
-  }
-</script>
