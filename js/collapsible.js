@@ -4,7 +4,7 @@ function collapsible(elm){
 
   // for (i = 0; i < coll.length; i++) {
   //   coll[i].addEventListener("click", function() {
-      elm.toggle("active");
+      elm.classList.toggle("active");
       var content = elm.nextElementSibling;
       if (content.style.maxHeight){
         content.style.maxHeight = null;
