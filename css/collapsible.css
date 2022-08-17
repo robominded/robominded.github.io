@@ -1,6 +1,6 @@
 .collapsible {
     background-color: #e5e5e5;
-    /* color: white; */
+    color: black;
     cursor: pointer;
     padding: 12px;
     width: 100%;
@@ -17,15 +17,15 @@
     color: white;
   }
   
-  .collapsible:after{
-    content: '\25BC';
+  .collapsible:before{
+    content: '\22C1';
     font-weight: bold;
-    float: right;
-    margin-left: 5px;
+    float: left;
+    margin-right: 8px;
   }
   
-  .active:after{
-    content: "\25B2";
+  .active:before{
+    content: "\22C0";
   }
   
   .content {
