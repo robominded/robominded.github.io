@@ -102,13 +102,6 @@ body{
 	text-align: justify;
 }
 
-.moduleHeader{
-	font-weight: bold;
-	font-size: 1.3em;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-
 .module{
 	margin-bottom: 10px;
 }
