@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">	
+    <!-- the following three lines to enable public comments -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/agate.min.css">
+
+	<link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/header.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Amiko&family=Michroma&family=Rajdhani&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Gudea|Reem+Kufi|Rajdhani" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+	<title>roboMind</title>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Snake</p>
+    <img  src="images/snake2.png" />
+		
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> 1- Instal Required Libraries </div>
+<p>Option 1) System level installation </p>
+<pre><code class="python">pip install pygame</code></pre>
+<p>Option 2) Install Pygame in a virtual environment</p>
+<pre><code class="python"># 1. Install Miniconda (or Anaconda)
+# The official page has very clear instructions 
+# https://docs.conda.io/en/latest/miniconda.html
+# 2. Create virtual environment
+conda create -n env_name # I called it `snake_env`
+# 3. Activate the virtual environment
+conda activate env_name
+# 4. Install needed libraries
+conda install pip
+pip install pygame 
+</code></pre>
+
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> 2- Pygame preliminary  </div>
+<p>Before starting the design process, let us familiarize ourselves with basic Pygame functionalities. 
+    In the following code we will <br>
+    - create a window, <br>
+    - fill it in with a color and, <br>
+    - draw a rectangle
+</p>
+
+<pre><code class="python">import pygame
+# Initialize pygame modules 
+pygame.init() 
+# define a window (or screen) to draw on it
+#                       window's  width,  height
+screen = pygame.display.set_mode((400,    100))
+# define colors in RGB
+BLACK = (0,0,0) 
+GREEN = (0, 255, 0)
+
+# set a flag to terminate exection when it is set to False
+running = True
+# this while loop will keep executing until the user click the close button
+while running == True:
+    # get user events
+    for event in pygame.event.get():
+        # pygame.QUIT happens when the user click the close button of the window
+        if event.type == pygame.QUIT: 
+            running = False
+
+    # make the background color of the window back
+    screen.fill(BLACK)
+    # Draw a rectangle        color   position   width,  height
+    pygame.draw.rect(screen,  GREEN,  (100, 40,   20,    40))
+    # Update the screen
+    pygame.display.flip()
+
+# quit pygame
+pygame.quit()
+</code></pre>
+<p>Output: </p>
+<img src="images/pygam_w.png" /> <br>
+
+<p>Let us draw a grid :</p> 
+To do so we create a function <code>draw_grid</code> that has a nested loops to draw rectangles with a small gap inbetween to make a grid. 
+
+<pre><code class="python">import pygame
+pygame.init()
+# define a cell size
+CELL = 20
+GAP = 1
+# To have a nice grid, define the width and height to be multiple of the cell size 
+width = 20 
+height = 5 
+BLACK = (0,0,0) 
+GRAY = (40, 40, 40)
+screen = pygame.display.set_mode((width * CELL, height * CELL))
+
+def draw_grid(cell=CELL, color=BLACK, w=width, h=height):
+    """This function draw a gird.
+    Note: the background color must not be the same as the cell color"""
+    # w//cell : allow us to progress on a cell level instead of a pixel level
+    for i in range(w):
+        for j in range(h):
+            # cell-GAP: to make a grid we draw a rectangle that is bit smaller than CELL
+            rect = (i * cell, j * cell, cell-GAP, cell-GAP)
+            pygame.draw.rect(screen, color, rect)
+
+running = True
+while running == True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: 
+            running = False
+    screen.fill(GRAY)
+    draw_grid()
+    pygame.display.flip()
+
+pygame.quit()
+</code></pre>
+<p>Output:</p>
+<img src="images/grid_env.png" />
+
+
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> 3- Requirements </div>
+<ol>
+    <li>We shall make the environment as a grid (or virtual grid)</li>
+    <li>The snake must move across a complete cell of the grid. For example, the snake must not move half a cell. </li>
+    <li>The food shall be generated randomly, but it must occupy a complete single cell. </li>
+    <li>If the snake finds food, it becomes longer by one cell. </li>
+    <li>If the snake hit the border or itself, it dies. </li>
+</ol>
+
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> 4- Define the <code>Vertex</code> and <code>Direction</code> class</div>
+A vertex is an intersection point on the grid.  
+Our simple math considers the top left vertex of a cell. 
+A few vertices are highlighted in the following figure. <br>
+<img src="images/vertex.png" /> <br>
+
+To move the snake and place the food accoding to the requirements, 
+we need to add, subtract, and compare vertices. 
+These functionalities are enabled by defining a few special python methods. Namely 
+<ul>
+    <li><code> __add__ </code> for addition, </li>
+    <li><code>__sub__ </code> for subtraction and,</li>
+    <li><code>__eq__</code> for equality. </li>
+</ul>
+
+<pre><code class="python">class Vertex:
+    '''a vertex represents the top left corner of a square'''
+    def __init__(s, x, y , cell_size=CELL):
+        s.cz = cell_size
+        s.x = x * cell_size
+        s.y = y * cell_size 
+        # print(s)
+    def __add__(s, p):
+        return Vertex( (s.x  + p.x) // s.cz , (s.y + p.y) // s.cz)
+    def __sub__(s, p):
+        return Vertex( (s.x  - p.x) // s.cz , (s.y - p.y) // s.cz)
+    def __eq__(s, p):
+        if not isinstance(p, Vertex):
+            # don't compare againt unrelated types
+            return NotImplemented
+        return s.x == p.x and s.y == p.y
+    def __repr__(s):
+        return f'Vertex{s.x, s.y}'
+</code></pre>
+Note that we are scaling a <code>Vertex</code> in the initialization step by the <code>cell_size</code>. 
+However, in the addition and subtraction methods we divide by the <code>cell_size</code> since these methods return 
+a new <code>Vertex</code> after adding/subtracting two 
+<code> Vertex</code> objects. This division prevent double scaling. 
+<br> <br>
+
+Now let us define the <code>Direction</code> class to make our main code more readable. 
+<pre>
+<code class="python">class Direction():
+    RIGHT = Vertex(1, 0)
+    LEFT  = Vertex(-1, 0)
+    DOWN  = Vertex(0, 1)
+    UP    = Vertex(0, -1)
+</code>
+</pre>
+
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> 5- Define the <code>SnakeGame</code> class</div>
+<p> 5.1 Initialization</p>
+<ul>
+    <li>set the size of the window of the game</li>
+    <li>set the clock so the game will run very fast</li>
+    <li>set initial direction</li>
+    <li>define snake position</li>
+    <li>place food</li>
+</ul>
+
+<pre><code class="python">class SnakeGame:
+    def __init__(s, w=60, h=30):
+        s.w = w 
+        s.h = h 
+        s.display = pygame.display.set_mode((s.w * CELL, s.h * CELL))
+        s.clock = pygame.time.Clock()
+
+        # set initial game state
+        s.step = Direction.RIGHT
+        s.head =  Vertex(s.w//2, s.h//2)
+        s.snake = [s.head, s.head - Vertex(1, 0) , s.head - Vertex(2, 0)]
+        s.score = 0 
+        s.food = s._gen_food()
+
+</code></pre>
+
+<p> 5.2 Good Generation</p>
+Randomly place food but not on the snake.
+<pre>
+<code class="python">def _gen_food(s):
+    food_v = Vertex( random.randint(0, s.w-1 ),  random.randint(0, s.h-1))
+    if food_v in s.snake:
+        # if food_v is on the snake generate a new food_v
+        s._gen_food()
+    return food_v
+</code>
+</pre>
+
+<p> 5.3 Direction</p>
+In the following method, we check if the user press an arrow on the keyboard to change direction. 
+The direction is saved to <code>s.step</code> to maintain the selected direction after the user releases the button. 
+Also, we check if the user closes the window. If the user did, we terminate the game.
+<pre>
+<code class="python">def _handle_user_input(s):
+    '''This method handles user input'''
+    for event in pygame.event.get():
+        # pygame.QUIT event happens when the user click on the window closing button 
+        if event.type == pygame.QUIT:
+            pygame.quit()   # quit pygame
+
+        # check if a key is pressed 
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                s.step = Direction.LEFT
+            elif event.key == pygame.K_RIGHT:
+                s.step = Direction.RIGHT
+            elif event.key == pygame.K_DOWN:
+                s.step = Direction.DOWN
+            elif event.key == pygame.K_UP:
+                s.step = Direction.UP
+</code>
+</pre>
+
+<p>5.4 Move the snake</p>
+After selecting the desired direction, we update the head position and insert it in the first place in the snake data structure
+(i.e. the snake list). If there is no food in the new head position, we drop (or <code>pop</code>) the trail to
+make the snake move without getting longer. 
+
+<pre>
+<code class="python">def move_snake(s):
+    s._handle_user_input()
+    s.head += s.step
+    s.snake.insert(0, snake.head)
+    if not snake.there_is_food():
+        snake.snake.pop()  
+</code>
+</pre>
+
+However, if there is food, we increase the score and generate new food cell. 
+
+<pre>
+<code class="python">def there_is_food(s):
+    if s.head == s.food:
+        s.score +=1
+        print(s.score)
+        s.food = s._gen_food()
+        return True
+    return False 
+</code>
+</pre>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+	<div class="clearFloat whiteText" style="background-color: #57042e;" >
+		<div class="page">
+			<div class="whiteText lessonHeader">Contact</div>
+			<table>
+				<tr>
+					<td>Gmail ID:</td> <td>amjad.y.majid</td>
+				</tr>
+				<tr>
+					<td>Mobile: </td> <td>+31616955224</td>
+				</tr>
+			</table>
+			<br> <br>
+		</div>
+        <p style="text-align: center; color: #f5248c">RoboMind | TU Delft</p>
+        <br>
+	</div>
+
+</body>
+</html>

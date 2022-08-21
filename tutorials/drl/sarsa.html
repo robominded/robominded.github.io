@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/agate.min.css">
 
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/header.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Amiko&family=Michroma&family=Rajdhani&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Gudea|Reem+Kufi|Rajdhani" rel="stylesheet">
@@ -23,14 +24,13 @@
 <div id="include_header"></div>
 
 <div class="grayBackground">
-	<div class="lesson">
-		<p class="headerTextColor lessonHeader">Q Learning</p>
+	<div class="page">
+		<p class="headerTextColor lessonHeader">SARSA</p>
 
 
-<div class="moduleHeader"> Utility Functions </div>
-<div class="module">
-<pre> <code class="python">
-import numpy as np
+<div class="sectionHeader headerTextColor"> Utility Functions </div>
+
+<pre> <code class="python">import numpy as np
 import os
 
 def plot_state_value_table(table, cols):
@@ -54,10 +54,9 @@ def plot_q_table(table, cols):
 clear = lambda: os.system('clear')
 </code> </pre>
 		
-<div class="moduleHeader"> The Grid World Environment </div>
-<div class="module">
-<pre> <code class="python">
-import numpy as np
+<div class="sectionHeader headerTextColor"> The Grid World Environment </div>
+
+<pre> <code class="python">import numpy as np
 
 class Action(): 
     def __init__(self):
@@ -181,73 +180,70 @@ if __name__ == '__main__':
     env.render()
 </code> </pre>
 
-<div class="moduleHeader"> The SARSA Agent </div>
-<div class="module">
-<pre> <code class="python">
-    import numpy as np
-    import time
+<div class="sectionHeader headerTextColor"> The SARSA Agent </div>
+<pre> <code class="python">import numpy as np
+import time
+
+from env import GridWorld 
+from utils import *
+
+class Sarsa():
+    def __init__(self, env, episodes=10000, epsilon=.2, alpha=.1, gamma=.99):
+        self.action_values = np.zeros((env.rows, env.cols, env.action.action_n))
+        self.episodes =  episodes
+        self.alpha = alpha
+        self.gamma = gamma
+        self.epsilon = epsilon
+
+    def policy(self, state):
+        if np.random.random() < self.epsilon:
+            return np.random.choice(env.action.action_idxs) 
+        else:
+            av = self.action_values [state[0]][state[1]]
+            return np.random.choice(np.flatnonzero(av == av.max()))
+
+    def sarsa(self):
+        for _ in range(1, self.episodes+1):
+            state = env.reset()
+            action = self.policy(state)
+            done = False
+
+            while not done:
+                next_state, reward, done, _ = env.step(action)
+                next_action = self.policy(state)
+
+                qsa = self.action_values[state[0]][state[1]][action] 
+                next_qsa = self.action_values[next_state[0]][next_state[1]][next_action] 
+                self.action_values[state[0]][state[1]][action] = qsa + self.alpha *(reward + self.gamma * next_qsa - qsa)
+
+                state = next_state
+                action = next_action
+
+
+if __name__ == '__main__':
+    env = GridWorld(shape = np.array((5,5)), obstacles = np.array([[0,1], [1,1], [2,1], [3,1],\
+                    [1,3],[2,3],[3,3],[4,3] ]))
     
-    from env import GridWorld 
-    from utils import *
-    
-    class Sarsa():
-        def __init__(self, env, episodes=10000, epsilon=.2, alpha=.1, gamma=.99):
-            self.action_values = np.zeros((env.rows, env.cols, env.action.action_n))
-            self.episodes =  episodes
-            self.alpha = alpha
-            self.gamma = gamma
-            self.epsilon = epsilon
-    
-        def policy(self, state):
-            if np.random.random() < self.epsilon:
-                return np.random.choice(env.action.action_idxs) 
-            else:
-                av = self.action_values [state[0]][state[1]]
-                return np.random.choice(np.flatnonzero(av == av.max()))
-    
-        def sarsa(self):
-            for _ in range(1, self.episodes+1):
-                state = env.reset()
-                action = self.policy(state)
-                done = False
-    
-                while not done:
-                    next_state, reward, done, _ = env.step(action)
-                    next_action = self.policy(state)
-    
-                    qsa = self.action_values[state[0]][state[1]][action] 
-                    next_qsa = self.action_values[next_state[0]][next_state[1]][next_action] 
-                    self.action_values[state[0]][state[1]][action] = qsa + self.alpha *(reward + self.gamma * next_qsa - qsa)
-    
-                    state = next_state
-                    action = next_action
-    
-    
-    if __name__ == '__main__':
-        env = GridWorld(shape = np.array((5,5)), obstacles = np.array([[0,1], [1,1], [2,1], [3,1],\
-                        [1,3],[2,3],[3,3],[4,3] ]))
-        
-        sarsa = Sarsa(env, episodes = 10000, epsilon=.2)
-        sarsa.sarsa()
-        steps =0
-        done = False
-        env.reset()
-        while True: 
-            steps += 1
-            clear()
-            state = env.get_agent_pos()
-            action = sarsa.policy(state)
-            state, _, done, _ = env.step(action)
-            env.render()
-            if done:
-                print(f"the agent reached terminal state in {steps} steps")
-                plot_q_table(sarsa.action_values, 5)
-                break
-    
-            time.sleep(.5)    
+    sarsa = Sarsa(env, episodes = 10000, epsilon=.2)
+    sarsa.sarsa()
+    steps =0
+    done = False
+    env.reset()
+    while True: 
+        steps += 1
+        clear()
+        state = env.get_agent_pos()
+        action = sarsa.policy(state)
+        state, _, done, _ = env.step(action)
+        env.render()
+        if done:
+            print(f"the agent reached terminal state in {steps} steps")
+            plot_q_table(sarsa.action_values, 5)
+            break
+
+        time.sleep(.5)    
 </code> </pre>
 
-</div>
 
 <script src="https://utteranc.es/client.js"
         repo="robominded/robominded.github.io"
@@ -258,7 +254,7 @@ if __name__ == '__main__':
 </script>
 
 	<div class="clearFloat whiteText" style="background-color: #57042e;" >
-		<div class="lesson">
+		<div class="page">
 			<div class="whiteText lessonHeader">Contact</div>
 			<table>
 				<tr>

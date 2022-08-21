@@ -1,0 +1,38 @@
+.header{
+	width:100%;
+	background-image: url('../images/header.jpeg'); 
+	background-size:cover;
+	/* height:320px; */
+	border-style: hidden hidden solid hidden;
+	border-width: 2px;
+	border-color: #cc0066;
+}
+
+
+.titleText{
+	padding-top:24px;
+	font-size: 3.6em; 
+	text-align: center; 
+	font-family: 'Amiko', sans-serif;
+}
+
+.subTitleText{
+	font-size:1.4em;
+	text-align: center; 
+	color: #57042e;
+	letter-spacing: 6px;
+	font-family: 'Michroma', sans-serif;
+	margin-top: -22px;
+	padding-left: 15px;
+}
+
+.researchMessage{
+	display: inline-block; 
+	width: 80%; 
+	background-color:#fff;
+	padding: 12px;
+	font-family: Arial, sans-serif;
+	color:rgb(93, 91, 91);
+	font-size: .9em;
+	line-height: 1.4em;
+}

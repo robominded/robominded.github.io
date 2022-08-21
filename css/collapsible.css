@@ -5,6 +5,7 @@
     padding: 12px;
     width: 100%;
     border: none;
+    border-bottom: 1px solid white;
     text-align: left;
     outline: none;
     font-size: 1em;
