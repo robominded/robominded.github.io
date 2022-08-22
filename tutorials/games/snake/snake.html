@@ -138,9 +138,22 @@ pygame.quit()
 </ol>
 
 <!-- Start a section -->
-<div class="sectionHeader headerTextColor"> 4- Define the <code>Vertex</code> and <code>Direction</code> class</div>
+<div class="sectionHeader headerTextColor"> 4- Define the <code>Grid</code>  class</div>
+This class defines the grid where the snake moves and the food is placed. In it 
+we also compute the x and y coordinates of the grid vertices. 
+<pre><code class="python">class Grid:
+    def __init__(s, w=640, h=480, cell=CELL):
+        s.cell_size = cell
+        s.width = (w // cell) * cell  # make the width multiple of the cell size
+        s.height = (h // cell) * cell
+        s.x_vertices = range(0, s.width, s.cell_size) 
+        s.y_vertices = range(0, s.height, s.cell_size)
+</code></pre>
+Next we define the <code>Vertex</code> class.
+
+<div class="sectionHeader headerTextColor"> 5- Define the <code>Vertex</code> and <code>Direction</code> class</div>
 A vertex is an intersection point on the grid.  
-Our simple math considers the top left vertex of a cell. 
+Our math considers the top left vertex of a cell. 
 A few vertices are highlighted in the following figure. <br>
 <img src="images/vertex.png" /> <br>
 
@@ -154,16 +167,14 @@ These functionalities are enabled by defining a few special python methods. Name
 </ul>
 
 <pre><code class="python">class Vertex:
-    '''a vertex represents the top left corner of a square'''
-    def __init__(s, x, y , cell_size=CELL):
-        s.cz = cell_size
-        s.x = x * cell_size
-        s.y = y * cell_size 
+    def __init__(s, x, y ):
+        s.x = x 
+        s.y = y  
         # print(s)
     def __add__(s, p):
-        return Vertex( (s.x  + p.x) // s.cz , (s.y + p.y) // s.cz)
+        return Vertex( s.x  + p.x , s.y + p.y)
     def __sub__(s, p):
-        return Vertex( (s.x  - p.x) // s.cz , (s.y - p.y) // s.cz)
+        return Vertex( s.x  - p.x, s.y - p.y) 
     def __eq__(s, p):
         if not isinstance(p, Vertex):
             # don't compare againt unrelated types
@@ -172,54 +183,53 @@ These functionalities are enabled by defining a few special python methods. Name
     def __repr__(s):
         return f'Vertex{s.x, s.y}'
 </code></pre>
-Note that we are scaling a <code>Vertex</code> in the initialization step by the <code>cell_size</code>. 
-However, in the addition and subtraction methods we divide by the <code>cell_size</code> since these methods return 
-a new <code>Vertex</code> after adding/subtracting two 
-<code> Vertex</code> objects. This division prevent double scaling. 
-<br> <br>
 
-Now let us define the <code>Direction</code> class to make our main code more readable. 
+To make our main code more readable, let us define the <code>Direction</code> class. 
 <pre>
 <code class="python">class Direction():
-    RIGHT = Vertex(1, 0)
-    LEFT  = Vertex(-1, 0)
-    DOWN  = Vertex(0, 1)
-    UP    = Vertex(0, -1)
+    def __init__(s, cell_size):
+        s.RIGHT = Vertex(cell_size, 0)
+        s.LEFT  = Vertex(-cell_size, 0)
+        s.DOWN  = Vertex(0, cell_size)
+        s.UP    = Vertex(0, -cell_size)
 </code>
 </pre>
 
 <!-- Start a section -->
-<div class="sectionHeader headerTextColor"> 5- Define the <code>SnakeGame</code> class</div>
+<div class="sectionHeader headerTextColor"> 6- Define the <code>Snake</code> class</div>
 <p> 5.1 Initialization</p>
 <ul>
-    <li>set the size of the window of the game</li>
-    <li>set the clock so the game will run very fast</li>
-    <li>set initial direction</li>
-    <li>define snake position</li>
-    <li>place food</li>
+    <li>
+        The <code>Snake</code> class takes as input a <code>Grid</code> object
+    to set a few properties.
+    </li> 
+    <li>Then it initializes the <code>snake</code> list, the direction for the snake movement, and 
+    the <code>score</code>value</li>
+    <li>Finally, it places the food on the grid</li>
 </ul>
 
-<pre><code class="python">class SnakeGame:
-    def __init__(s, w=60, h=30):
-        s.w = w 
-        s.h = h 
-        s.display = pygame.display.set_mode((s.w * CELL, s.h * CELL))
-        s.clock = pygame.time.Clock()
+<pre><code class="python">class Snake:
+    def __init__(s, grid):
+        s.w = grid.width
+        s.h = grid.height 
+        s.cz = grid.cell_size
+        s.grid = grid
+        s.direction = Direction(s.cz)
 
         # set initial game state
-        s.step = Direction.RIGHT
         s.head =  Vertex(s.w//2, s.h//2)
-        s.snake = [s.head, s.head - Vertex(1, 0) , s.head - Vertex(2, 0)]
+        s.snake = [s.head, s.head - Vertex(s.cz, 0) , s.head - Vertex(2*s.cz, 0)]
+        s.step = s.direction.RIGHT
         s.score = 0 
         s.food = s._gen_food()
-
 </code></pre>
 
 <p> 5.2 Good Generation</p>
 Randomly place food but not on the snake.
 <pre>
 <code class="python">def _gen_food(s):
-    food_v = Vertex( random.randint(0, s.w-1 ),  random.randint(0, s.h-1))
+    food_v = Vertex( random.choice(s.grid.x_vertices),  random.choice(s.grid.y_vertices))
+    print(food_v)
     if food_v in s.snake:
         # if food_v is on the snake generate a new food_v
         s._gen_food()
@@ -227,10 +237,10 @@ Randomly place food but not on the snake.
 </code>
 </pre>
 
-<p> 5.3 Direction</p>
-In the following method, we check if the user press an arrow on the keyboard to change direction. 
-The direction is saved to <code>s.step</code> to maintain the selected direction after the user releases the button. 
-Also, we check if the user closes the window. If the user did, we terminate the game.
+<p> 5.3 Handle user input</p>
+The following method checks if the user presses an arrow on the keyboard to change direction. 
+The direction is saved in <code>s.step</code> to maintain the selected direction after the user releases the button. 
+Also, we check if the user closes the window, and If the user did, we terminate the game.
 <pre>
 <code class="python">def _handle_user_input(s):
     '''This method handles user input'''
@@ -267,7 +277,8 @@ make the snake move without getting longer.
 </code>
 </pre>
 
-However, if there is food, we increase the score and generate new food cell. 
+However, if there is food, we increase the score, generate new food cell and skip dropping the last cell in the 
+snake. 
 
 <pre>
 <code class="python">def there_is_food(s):
@@ -278,6 +289,66 @@ However, if there is food, we increase the score and generate new food cell.
         return True
     return False 
 </code>
+</pre>
+
+<p>5.5 Snake status</p>
+Check if the snake has died. The snake dies if it hits a border or itself.
+Notice, when we check if the head has moved on the snake itself we exclude the head position for obvious reasons. 
+<pre>
+    <code class="python">def snake_died(s):
+    died =False
+    if s.head.x > s.grid.x_vertices[-1]  or s.head.y > s.grid.y_vertices[-1]  or s.head.x < 0 or s.head.y < 0 :
+        died  = True
+    elif s.head in s.snake[1:]:
+        died  = True
+    return died  
+    </code>
+</pre>
+
+<div class="sectionHeader headerTextColor"> 7- Define the <code>Window</code> class</div>
+This class takes in a <code>Grid</code> and <code>Snake</code> class. 
+This class is responsible for drawing the grid, snake and food on the window. It also set the speed at
+which the screen is refreshed. Finally, it write on the window to show the current score. 
+<pre>
+    <code class="python">def draw_grid(s, vertex=False):
+        for i in s.grid.x_vertices:
+            for j in s.grid.y_vertices:
+                rect = (i, j, s.cz-1, s.cz-1)
+                pygame.draw.rect(s.display, (BLACK), rect)
+                if vertex:
+                    vertex_point = (i, j, 2, 2)
+                    pygame.draw.rect(s.display, RED, vertex_point)
+
+    def update(s):
+        s.display.fill(GRAY)
+        s.draw_grid(True)
+        for pt in s.snake.snake:
+            pygame.draw.rect(s.display, WHITE, pygame.Rect(pt.x, pt.y, s.cz-GAP, s.cz-GAP))
+        text = font.render(f"Score: {s.snake.score}", True, WHITE)
+        s.display.blit(text, [0,0])
+        pygame.draw.rect(s.display, GREEN, pygame.Rect(s.snake.food.x, s.snake.food.y, s.cz, s.cz))
+        s.clock.tick(SPEED)
+        pygame.display.flip()</code>
+</pre>
+
+<div class="sectionHeader headerTextColor"> 8- The main loop of the game. </div>
+<pre>
+    <code class="python">if __name__ == '__main__':
+        num_lives = 9
+        for _ in range(num_lives):
+            grid = Grid()
+            snake = Snake(grid)
+            window = Window(grid, snake)
+            while not snake.snake_died():  
+                snake.move_snake()
+                window.update()
+    
+            print('Snake died!')
+        print('Game is over!')
+        pygame.quit()
+        quit()
+
+    </code>
 </pre>
 
 </div>  <!-- End page -->
