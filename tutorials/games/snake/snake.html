@@ -48,10 +48,12 @@ pip install pygame
 <!-- Start a section -->
 <div class="sectionHeader headerTextColor"> 2- Pygame preliminary  </div>
 <p>Before starting the design process, let us familiarize ourselves with basic Pygame functionalities. 
-    In the following code we will <br>
-    - create a window, <br>
-    - fill it in with a color and, <br>
-    - draw a rectangle
+    In the following code we will
+    <ul>
+        <li>create a window,</li>
+        <li>fill it in with  color and,</li>
+        <li>draw a rectangle</li>
+    </ul>
 </p>
 
 <pre><code class="python">import pygame
@@ -88,8 +90,7 @@ pygame.quit()
 <img src="images/pygam_w.png" /> <br>
 
 <p>Let us draw a grid :</p> 
-To do so we create a function <code>draw_grid</code> that has a nested loops to draw rectangles with a small gap inbetween to make a grid. 
-
+To do so we create a function <code>draw_grid</code> that has a nested loop to draw rectangles with a small gap in between to make a grid.
 <pre><code class="python">import pygame
 pygame.init()
 # define a cell size
@@ -130,7 +131,7 @@ pygame.quit()
 <!-- Start a section -->
 <div class="sectionHeader headerTextColor"> 3- Requirements </div>
 <ol>
-    <li>We shall make the environment as a grid (or virtual grid)</li>
+    <li>We shall make the environment a grid (or virtual grid)</li>
     <li>The snake must move across a complete cell of the grid. For example, the snake must not move half a cell. </li>
     <li>The food shall be generated randomly, but it must occupy a complete single cell. </li>
     <li>If the snake finds food, it becomes longer by one cell. </li>
@@ -157,7 +158,7 @@ Our math considers the top left vertex of a cell.
 A few vertices are highlighted in the following figure. <br>
 <img src="images/vertex.png" /> <br>
 
-To move the snake and place the food accoding to the requirements, 
+To move the snake and place the food according to the requirements, 
 we need to add, subtract, and compare vertices. 
 These functionalities are enabled by defining a few special python methods. Namely 
 <ul>
@@ -237,7 +238,7 @@ Randomly place food but not on the snake.
 </code>
 </pre>
 
-<p> 5.3 Handle user input</p>
+<p> 5.3 User input handler</p>
 The following method checks if the user presses an arrow on the keyboard to change direction. 
 The direction is saved in <code>s.step</code> to maintain the selected direction after the user releases the button. 
 Also, we check if the user closes the window, and If the user did, we terminate the game.
@@ -277,7 +278,7 @@ make the snake move without getting longer.
 </code>
 </pre>
 
-However, if there is food, we increase the score, generate new food cell and skip dropping the last cell in the 
+However, if there is food, we increase the score, generate a new food cell, and skip dropping the last cell in the 
 snake. 
 
 <pre>
@@ -307,8 +308,8 @@ Notice, when we check if the head has moved on the snake itself we exclude the h
 
 <div class="sectionHeader headerTextColor"> 7- Define the <code>Window</code> class</div>
 This class takes in a <code>Grid</code> and <code>Snake</code> class. 
-This class is responsible for drawing the grid, snake and food on the window. It also set the speed at
-which the screen is refreshed. Finally, it write on the window to show the current score. 
+This class is responsible for drawing the grid, snake, and food on the window. It also set the speed at
+which the screen is refreshed. Finally, it writes on the window to show the current score. 
 <pre>
     <code class="python">def draw_grid(s, vertex=False):
         for i in s.grid.x_vertices:
