@@ -9,12 +9,15 @@
 </head>
 
 <body>
-<div id="include_header"></div>
+<div id="include_header"></div> 
 
 
 <div class="page">
-<p class="headerTextColor lessonHeader"> Classification </p>
-<!-- <img  src="images/snake2.png" /> -->
+<p style="text-align: center; margin-bottom: 14px;" class="headerTextColor lessonHeader"> Classification </p>
+<div  style="max-width: 600px; margin-left: auto; margin-right: auto;"  > 
+    <img src="images/knn.png" /> 
+    cridet: medium.com
+</div> <br>
 In a classification problem the output is a set of predefined classes (or labels or categories). A classifier is 
 an algorithm (i.e., a set of rules) that tries to predict the correct label (or class) to a given input. 
 In machine learning, the classifier uses data (or training data) to optimize it prediction process. 
@@ -44,12 +47,13 @@ num_samples = len(digits.images)
 # reshape the matrix from (num_samples x 8 x 8) to (num_samples x 64)
 data = digits.images.reshape((num_samples, -1))</code></pre>
 
-Then, we split the data between training and testing datasets. 
+Then, we split the data between training and testing datasets. For that, we will use the 
+<code>train_test_split</code> method form <code>sklearn</code>.
 <pre><code class="python">from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(
     data, digits.target, test_size=.25, shuffle=False)</code></pre>
 
-2) Compute Euclidean distances:- 
+2) Compute Euclidean distances:- As mentioned above we will drop the square root as it is not important for our purposes. 
 <pre><code class="python">import numpy as np 
 def euclidean_dist(x, y):
     return np.sum( np.square( x - y) )</code></pre>
@@ -61,14 +65,38 @@ an the training dataset.
     return np.argmin(distances)</code></pre>
 
 4) Classify:- return the label of the nearst neighbor.
-<pre><code class="python">def classify(x):
-    idx = find_NN(x)
-    return labels[idx]</code></pre>
+<pre><code class="python">def classify(x, dataset):
+    idx = find_NN(x, dataset)
+    return y_train[idx]</code></pre>
+
 
 <!-- Start a section -->
-<div class="sectionHeader headerTextColor"> More details for better understanding</div>
+<div class="sectionHeader headerTextColor"> Test </div>
+Let us select a test point and pass it to our classifier
+<pre><code class="python">sample_test = 210
+test_digit = X_test[sample_test]
+test_label = y_test[sample_test]
+pred = classify(test_digit, X_train)
+print(f"Predicted digit {pred}, Correct digit {test_label}" )
 
+import matplotlib.pyplot as plt
+plt.imshow(test_digit.reshape((8,8)), cmap=plt.cm.gray)
+plt.show()
+</code></pre>
+Output <br>
+<code>Predicted digit 2, Correct digit 2</code> <br>
+<img src="images/digit2.png"> <br>
 
+Let us pass all the test set to our classifier and find out the error percentage 
+<pre><code class="python">errors  = [ y_test[idx] != classify(X_test[idx], X_train) \
+    for idx in np.arange(len(y_test)) ]
+print(f'The error percentage is {np.sum(errors) / len(y_test) * 100:.2f}%')</code></pre>
+Output: <br>
+<code>The error percentage is 3.78%</code>
+
+<div class="sectionHeader headerTextColor"> Access the Code </div>
+You can access the code in the associated <a target="_blank" href="https://colab.research.google.com/drive/14hrNsCjtzc6hgwc40EmEKVDZSr5iTOwt">Google Colab page</a> . There you will also
+find the object oriented Implementation. 
 
 </div>  <!-- End page -->
 <!-- enable comments -->
