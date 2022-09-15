@@ -15,19 +15,59 @@
 <div class="page">
 <p class="headerTextColor lessonHeader"> Classification </p>
 <!-- <img  src="images/snake2.png" /> -->
-In a classification problem the output is a set of predefined classes (or labels/categories). A classifier is 
-an algorithm that tries to predict the correct label (or class) to a given input. In machine learning, this classifier
-uses data (or training data) to optimize it prediction process. 
+In a classification problem the output is a set of predefined classes (or labels or categories). A classifier is 
+an algorithm (i.e., a set of rules) that tries to predict the correct label (or class) to a given input. 
+In machine learning, the classifier uses data (or training data) to optimize it prediction process. 
 <div class="sectionHeader headerTextColor"> The 1-nearest neighbor classifier  </div>
 
 <p>
 This algorithm computes distances between an input data point and the data points of a training dataset. 
 Then, it yields the label associated with the training data point that is closest to the input. 
+So, to use this algorithm, we need to calculate distances between vectors (or data points), and
+the Euclidean distance function is a natural way for doing so. For two vectors 
+\( x, y \in \mathbb{R}^d \), their Euclidean distance is defined as
+$$\|x - y\| = \sqrt{\sum_{i=1}^d (x_i - y_i)^2}.$$ For our use case, we can omit the square root to simplify the
+ computation. 
 </p>
 <!-- Start a section -->
+<div class="subsectionHeader headerTextColor"> Implementation </div>
+1) Loading data:- We will load the scikit-learn's MNIST hand-written dataset. The dataset contains \( 8\times8 \)
+grayscale images of hand written digits. We can access these images with the <code>images</code> attribute and
+the labels with the <code>target</code> attribute.
+<pre><code class="python">from sklearn.datasets import load_digits
+# loading the digits dataset
+digits = load_digits() </code></pre>
 
-<p>Option 1) System level installation </p>
-<pre><code class="python">pip install pygame</code></pre>
+Now, let us flatten the images to compute the distances between their vector representations. 
+<pre><code class="python"># get the number of images in the datasets
+num_samples = len(digits.images) 
+# reshape the matrix from (num_samples x 8 x 8) to (num_samples x 64)
+data = digits.images.reshape((num_samples, -1))</code></pre>
+
+Then, we split the data between training and testing datasets. 
+<pre><code class="python">from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+    data, digits.target, test_size=.25, shuffle=False)</code></pre>
+
+2) Compute Euclidean distances:- 
+<pre><code class="python">import numpy as np 
+def euclidean_dist(x, y):
+    return np.sum( np.square( x - y) )</code></pre>
+
+3) Find the nearst neighbor:- calculate the distances between the input to be classified 
+an the training dataset. 
+<pre><code class="python">def find_NN(x, dataset):
+    distances = [euclidean_dist(x, y) for y in dataset]
+    return np.argmin(distances)</code></pre>
+
+4) Classify:- return the label of the nearst neighbor.
+<pre><code class="python">def classify(x):
+    idx = find_NN(x)
+    return labels[idx]</code></pre>
+
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> More details for better understanding</div>
+
 
 
 </div>  <!-- End page -->

@@ -43,6 +43,10 @@ img{
 	font-size: 1.4em;
 }
 
+.subsectionHeader{
+	font-size: 1.1em;
+}
+
 .sectionImg{
 	width:15%; 
 	float: left;
