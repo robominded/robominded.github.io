@@ -24,11 +24,12 @@
 <body style="height: 100vh;">
 <div id="include_header"></div>
 
+<div class="page">
+<p style="text-align: center; margin-bottom: 14px;" class="headerTextColor lessonHeader"> Vanilla Bandits Problem </p>
 	
-	# Vanilla Bandits Problem
 In vanilla bandits the agent is repeatedly faced with the problem of selecting an action amongst multiple actions. Each action selection yields a reward. The reward associated wich an action is usually stochastic in nature. The agent's goal is to select the action that gives the maximum expected reward. However, the reward distribution associated with each action is normally unknown to the agent. Therefore, the agent needs to sample the actions (i.e., select the actions) many times to estimate their rewards distributions. Once the reward distributions is estimated with confidence the agent can use this knowledge to select the best action and maximize the obtained reward. \\
 
-* **Action-value:** is the expected reward of taking action $a$ (the true value of $a$). 
+__Action-value__: is the expected reward of taking action $a$ (the true value of $a$). 
 $$ q_*(a) = \mathbb{E}[R_t | A_t =a] \ \  \forall a \in \{1,\dots, k\} $$
 * This value is usually unknown to the agent, and the agent goal is to estimate it. One way of estimating an action value is to select an action (sample an action) many times and compute the average reward.  
 $$
@@ -56,5 +57,6 @@ $$
 <br>
 <hr>
 
+	</div> <!--end page-->
     <body>
 </html>
