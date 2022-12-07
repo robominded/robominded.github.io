@@ -14,7 +14,7 @@
 
 
 <div class="page">
-    <p class="headerTextColor lessonHeader">Feedforward Neural Networks</p>
+    <p class="headerTextColor lessonHeader">Feedforward Neural Networks (ANN)</p>
 
 <p>	
 A feedforward neural network is a type of neural network that is composed of layers of connected neurons, with each layer passing its output to the next layer. The connections between the neurons in a feedforward neural network are not connected in a cycle, which means that information flows only in one direction: from the input layer through the hidden layers and to the output layer.
@@ -35,6 +35,76 @@ Training a feedforward neural network involves adjusting the weights and biases 
 One of the key advantages of feedforward neural networks is that they are relatively simple and easy to understand, which makes them a good starting point for learning about neural networks. However, they also have some limitations, such as the fact that they cannot process data in real-time, and they cannot handle inputs with complex relationships between each other. Despite these limitations, feedforward neural networks are still widely used and have achieved impressive results on a variety of tasks.
 </p><br>
 
+<div class="sectionHeader headerTextColor"> ANN with Code Examples </div>
+A feedforward neural network is a type of neural network that consists of an input layer, one or more hidden layers, and an output layer. The nodes in the input layer receive input data and pass it through the hidden layers, where it is transformed by a series of weights and biases. The output of the hidden layers is then passed through the output layer to produce a prediction.
+<br>
+Here is an example of a simple feedforward neural network implemented in PyTorch:
+<pre><code class="python">import torch
+
+# Define the model
+model = torch.nn.Sequential(
+    torch.nn.Linear(10, 32),  # Input layer
+    torch.nn.ReLU(),  # Activation function
+    torch.nn.Linear(32, 64),  # Hidden layer
+    torch.nn.ReLU(),  # Activation function
+    torch.nn.Linear(64, 10)  # Output layer
+)
+
+# Define the input data
+input_data = torch.randn(1, 10)
+
+# Compute the output of the model
+output = model(input_data)
+
+</code></pre>
+
+In this example, we define a feedforward neural network with 10 input units, one hidden layer with 32 units, and an output layer with 10 units. We then apply the model to some random input data and compute the output.
+<br>
+Note that the output of a feedforward neural network is a tensor with the same shape as the output layer. In this case, the output has shape 1 x 10, because we used a batch size of 1 and the output layer has 10 units.
+<br>
+After defining the model, you can train it using the same steps as for any other neural network: define a loss function, define an optimizer, and loop over the training data, computing the output and loss, computing the gradients, and updating the model's parameters.
+<br>
+Here is an example of training a feedforward neural network:
+<pre><code class="python">import torch
+
+    # Define the model
+    model = torch.nn.Sequential(
+        torch.nn.Linear(10, 32),  # Input layer
+        torch.nn.ReLU(),  # Activation function
+        torch.nn.Linear(32, 64),  # Hidden layer
+        torch.nn.ReLU(),  # Activation function
+        torch.nn.Linear(64, 10)  # Output layer
+    )
+    
+    # Define the loss function
+    loss_fn = torch.nn.MSELoss()
+    
+    # Define the optimizer
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+    
+    # Define the training data
+    inputs = torch.randn(100, 10)
+    targets = torch.randn(100, 10)
+    
+    # Training loop
+    for i in range(100):
+        # Compute the output of the model
+        output = model(inputs)
+    
+        # Compute the loss
+        loss = loss_fn(output, targets)
+    
+        # Zero the gradients of the model
+        optimizer.zero_grad()
+    
+        # Compute the gradients of the model
+        loss.backward()
+    
+        # Update the model's parameters
+        optimizer.step()
+    
+</code></pre>
+In this example, we define a feedforward neural network and a mean squared error loss function. We then generate some random training data and train the model by looping over the training data, computing the output and loss, computing the gradients, and
 </div>  <!-- End page -->
 <!-- enable comments -->
 <script src="https://utteranc.es/client.js"
