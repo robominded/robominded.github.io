@@ -1,0 +1,53 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Feedforward Neural Networks</p>
+
+<p>	
+A feedforward neural network is a type of neural network that is composed of layers of connected neurons, with each layer passing its output to the next layer. The connections between the neurons in a feedforward neural network are not connected in a cycle, which means that information flows only in one direction: from the input layer through the hidden layers and to the output layer.
+</p><br>
+<p>	
+The basic building block of a feedforward neural network is the neuron, which is a simple computational unit that takes in a number of inputs, performs a computation on them, and produces a single output. In a feedforward neural network, each neuron receives input from multiple other neurons in the previous layer, and each neuron sends its output to multiple neurons in the next layer.
+</p><br>
+<p>	
+The input layer of a feedforward neural network is responsible for receiving the raw data that the network will process. This data is passed through to the next layer, known as the hidden layer, which applies a set of transformations to the data in order to extract useful features. The hidden layer may consist of multiple neurons, each of which is responsible for extracting a different set of features.
+</p><br>
+<p>	
+The final layer of a feedforward neural network is the output layer, which produces a prediction or decision based on the features extracted by the hidden layers. The output layer may consist of multiple neurons, each of which produces a different output. For example, in a classification task, the output layer may have one neuron for each possible class, with the neuron that produces the highest output indicating the predicted class.
+</p><br>
+<p>	
+Training a feedforward neural network involves adjusting the weights and biases of the connections between the neurons in order to improve the network's ability to make accurate predictions or decisions. This is typically done using a variant of gradient descent, which is an optimization algorithm that adjusts the weights and biases in a way that minimizes the error between the predicted outputs and the desired outputs.
+</p><br>
+<p>	
+One of the key advantages of feedforward neural networks is that they are relatively simple and easy to understand, which makes them a good starting point for learning about neural networks. However, they also have some limitations, such as the fact that they cannot process data in real-time, and they cannot handle inputs with complex relationships between each other. Despite these limitations, feedforward neural networks are still widely used and have achieved impressive results on a variety of tasks.
+</p><br>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+

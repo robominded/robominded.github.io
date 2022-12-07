@@ -1,0 +1,48 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Transformer architecture</p>
+
+<p>		
+Transformer architecture is a type of deep learning model that is commonly used for natural language processing tasks, such as machine translation and text summarization. It was introduced in a paper by researchers at Google in 2017 and has since become a popular choice for many NLP tasks.
+</p><br>
+<p>
+The transformer architecture is based on the idea of self-attention, which allows the model to focus on different parts of the input sequence at different times. This is in contrast to traditional models, which process the input sequence in a fixed order. The transformer architecture also uses multi-headed attention, which allows the model to attend to multiple parts of the input sequence simultaneously.
+</p><br>
+The transformer architecture is made up of several components, including an encoder and a decoder. The encoder processes the input sequence and generates a series of hidden states, which are then passed to the decoder. The decoder uses these hidden states to generate the output sequence.
+<p>
+One of the main advantages of the transformer architecture is its ability to process input sequences of any length, which makes it well-suited for tasks such as machine translation, where the length of the input and output sequences can vary greatly. It is also parallelizable, which means that it can be trained and run on multiple GPUs or TPUs, which allows it to achieve high performance on large datasets.
+</p><br>
+<p>
+Overall, the transformer architecture is a powerful and flexible approach to natural language processing, and has been used to achieve state-of-the-art results on many NLP tasks.
+</p><br>
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+
+
+

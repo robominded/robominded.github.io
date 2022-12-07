@@ -1,0 +1,54 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Deep Learning Overview</p>
+
+<p>		
+    Deep learning is a subfield of machine learning that is concerned with algorithms inspired by the structure and function of the human brain, known as artificial neural networks. These algorithms are designed to learn from data and make predictions or decisions based on that data. Deep learning is called "deep" because the neural networks used in this type of machine learning are made up of multiple layers, with each layer learning to extract increasingly complex features from the data.
+</p><br>
+<p>
+    One of the key advantages of deep learning is that it can automatically learn and extract features from raw data, without the need for manual feature engineering. This makes it possible to use deep learning for a wide range of tasks, including image and speech recognition, natural language processing, and even playing games.
+</p><br>
+<p>   
+    To understand how deep learning works, it's helpful to understand the basic building block of a neural network: the neuron. A neuron is a simple computational unit that takes in a number of inputs, performs a computation on them, and produces a single output. In a neural network, these neurons are connected together in layers, with each layer learning to extract a different set of features from the data.
+</p><br>
+<p>   
+    The first layer of a neural network, known as the input layer, takes in raw data and passes it through to the next layer. The next layer, known as the hidden layer, applies a set of transformations to the data to extract useful features. This process continues, with each subsequent layer learning to extract more and more complex features from the data. Finally, the output layer produces a prediction or decision based on the features extracted by the hidden layers.
+</p><br>
+<p>   
+    Training a neural network involves adjusting the weights and biases of the connections between the neurons in order to improve the network's ability to make accurate predictions or decisions. This is typically done using a variant of gradient descent, which is an optimization algorithm that adjusts the weights and biases in a way that minimizes the error between the predicted outputs and the desired outputs.
+</p><br>
+<p>    
+    One of the key challenges in deep learning is that it requires a large amount of data in order to train the neural network effectively. This has led to the development of new techniques for scaling up neural networks, such as distributed training, which allows multiple machines to work together to train a single network.
+</p><br>
+<p>   
+    Overall, deep learning has proven to be a powerful tool for making predictions and decisions based on complex data. It has achieved state-of-the-art performance on a variety of tasks, and is continuing to advance at a rapid pace.
+</p><br>
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+
