@@ -13,7 +13,7 @@
 
 
 <div class="page">
-    <p class="headerTextColor lessonHeader">Deep Learning Overview</p>
+    <p class="headerTextColor lessonHeader">Recurrent Neural Network</p>
 
 <p>		
     A recurrent neural network (RNN) is a type of artificial neural network that is designed to process sequential data, such as text, speech, or time series data. Unlike a traditional feedforward neural network, which accepts a fixed-sized input and produces a fixed-sized output, an RNN can accept a variable-sized input and produce a variable-sized output.
@@ -36,6 +36,71 @@ In addition to LSTM networks, there are also other types of RNNs that have been 
 <p>
 If you want to learn more about recurrent neural networks, there are many resources available online, including tutorials and academic papers. I would recommend starting with a simple tutorial to get a basic understanding of how RNNs work, and then moving on to more advanced materials as you gain more knowledge and experience.
 </p><br>
+
+<div class="sectionHeader headerTextColor"> Code examples  </div>
+Here is an example of a simple RNN implemented in Python using the Keras deep learning library:
+<pre><code class="python">import keras
+
+    # Define the model
+    model = keras.Sequential()
+    model.add(keras.layers.SimpleRNN(units=4, input_shape=(None, 1)))
+    model.add(keras.layers.Dense(units=1))
+    
+    # Compile the model
+    model.compile(optimizer="adam", loss="mean_squared_error")
+    
+    # Define the input sequence
+    X = [[1], [2], [3], [4], [5]]
+    
+    # Define the corresponding output sequence
+    y = [[1], [2], [3], [4], [5]]
+    
+    # Fit the model to the data
+    model.fit(X, y, epochs=100)    
+    
+</code></pre>
+This model takes a sequence of numbers as input, and attempts to learn to predict the next number in the sequence. For example, if the input sequence is [1, 2, 3], the model might learn to predict that the next number in the sequence is 4.
+<br>
+The key part of this model is the SimpleRNN layer, which processes the input sequence and produces a sequence of outputs. The number of units in this layer (in this case, 4) determines the size of the internal representation that the RNN uses to process the sequence.
+
+<div class="sectionHeader headerTextColor">  Training RNN </div>
+To train a recurrent neural network (RNN), you will need to follow these steps:
+<br>
+1) Define the RNN model. This typically involves deciding on the type of RNN to use (such as a long short-term memory (LSTM) network or a gated recurrent unit (GRU) network), the number of units or neurons in the network, and the input and output layers.
+<br>
+2) Compile the model. This involves specifying the optimizer to use (such as stochastic gradient descent or Adam), the loss function to minimize, and any additional metrics to track.
+<br>
+3) Generate or collect a dataset that can be used to train the RNN. This dataset should contain sequences of data that the RNN can use to learn to make predictions.
+<br>
+4) Fit the model to the data by using the fit() method. This involves specifying the input sequence and the corresponding output sequence, as well as the number of epochs (iterations over the entire dataset) to train for.
+<br>
+5) Evaluate the trained model on a separate test dataset to assess its performance. This involves using the evaluate() method to measure the model's loss and any other metrics that were specified during compilation.
+<br>
+Here is an example of how these steps might be implemented in Python using the Keras deep learning library:
+<pre><code class="python">import keras
+
+# Define the RNN model
+model = keras.Sequential()
+model.add(keras.layers.LSTM(units=10, input_shape=(None, 1)))
+model.add(keras.layers.Dense(units=1))
+
+# Compile the model
+model.compile(optimizer="adam", loss="mean_squared_error")
+
+# Generate some dummy data
+X_train = [[[i] for i in range(10)]]
+y_train = [[[i+1] for i in range(10)]]
+X_test = [[[i] for i in range(10,20)]]
+y_test = [[[i+1] for i in range(10,20)]]
+
+# Fit the model to the training data
+model.fit(X_train, y_train, epochs=100)
+
+# Evaluate the model on the test data
+model.evaluate(X_test, y_test)
+</code></pre>
+This code defines a simple LSTM network with 10 units, which is trained to predict the next number in a sequence of 10 numbers. The model is trained on a training dataset and then evaluated on a separate test dataset.
+
 </div>  <!-- End page -->
 <!-- enable comments -->
 <script src="https://utteranc.es/client.js"
