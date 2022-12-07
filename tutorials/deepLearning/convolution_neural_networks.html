@@ -13,7 +13,7 @@
 
 
 <div class="page">
-    <p class="headerTextColor lessonHeader">Deep Learning Overview</p>
+    <p class="headerTextColor lessonHeader">Convolutional Neural Network (CNN) Overview</p>
 
 <p>		
  A convolutional neural network (CNN) is a type of artificial neural network that is commonly used in computer vision tasks. It is designed to process data that has a grid-like structure, such as an image.
@@ -36,6 +36,125 @@ One of the challenges in training a CNN is choosing the right set of filters to 
 <p>
 If you want to learn more about convolutional neural networks, there are many resources available online, including tutorials and academic papers. I would recommend starting with a simple tutorial to get a basic understanding of how CNNs work, and then moving on to more advanced materials as you gain more knowledge and experience.
 </p><br>
+
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> CNN with Code Examples </div>
+
+A Convolutional Neural Network (CNN) is a type of neural network that is particularly well-suited for image and video data. CNNs use convolutional layers, which consist of a series of filters that scan an image and extract features from it. These features are then passed through several fully-connected layers to produce a prediction.
+<br>
+Here is an example of a simple CNN implemented in PyTorch:
+
+<pre><code class="python">import torch
+
+# Define the convolutional layer
+conv_layer = torch.nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, padding=1)
+
+# Define the input data
+input_data = torch.randn(1, 3, 32, 32)  # 1 batch, 3 channels, 32x32 images
+
+# Compute the output of the convolutional layer
+output = conv_layer(input_data)
+
+# Print the shape of the output
+print(output.shape)  # 1 batch, 16 channels, 32x32 images
+</code></pre>
+
+In this example, we define a convolutional layer with 3 input channels (representing the red, green, and blue channels of an image) and 16 output channels (representing the 16 filters in the layer). We then apply the convolutional layer to some random input data and print the shape of the output.
+<br>
+Note that the output of a convolutional layer is a 4-dimensional tensor, with dimensions batch_size, num_channels, height, width. In this example, the output has the same height and width as the input, because we used padding=1 to add padding to the input data. This is a common practice when using convolutional layers, as it helps to preserve the spatial dimensions of the input.
+<br>
+After the convolutional layer, it is common to apply additional layers to process the output of the convolutional layer. For example, we could apply a max pooling layer to down-sample the spatial dimensions of the output, and then apply several fully-connected layers to produce a final prediction.
+<br>
+Here is an example of a CNN that includes a max pooling layer and two fully-connected layers:
+<pre><code class="python">import torch
+
+# Define the convolutional layer
+conv_layer = torch.nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, padding=1)
+
+# Define the max pooling layer
+pool_layer = torch.nn.MaxPool2d(kernel_size=2)
+
+# Define the fully-connected layers
+fc_layer1 = torch.nn.Linear(16 * 16 * 16, 128)
+fc_layer2 = torch.nn.Linear(128, 10)
+
+# Define the input data
+input_data = torch.randn(1, 3, 32, 32)  # 1 batch, 3 channels, 32x32 images
+
+# Apply the convolutional and max pooling layers
+output = conv_layer(input_data)
+output = pool_layer(output)
+
+# Flatten the output of the max pooling layer
+output = output.view(-1, 16 * 16 * 16)
+
+# Apply the fully-connected layers
+output = fc_layer1(output)
+output = fc_layer2(output)
+
+# Print the final output
+print(output.shape) 
+</code></pre>
+
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> Training a CNN</div>
+
+To train a CNN using PyTorch, you will need to define the following components:
+
+1) The model: This is the neural network that you will train. It should be defined using the PyTorch nn module.
+<br>
+2) The loss function: This is a function that measures how well the model is performing, and will be used to guide the training process. PyTorch provides a number of loss functions in the nn module, such as the CrossEntropyLoss for classification tasks and the MSELoss for regression tasks.
+<br>
+3) The optimizer: This is the algorithm that will be used to adjust the model's parameters in order to minimize the loss function. PyTorch provides a number of optimizers in the optim module, such as SGD and Adam.
+<br>
+4) The training data: This is the data that will be used to train the model. It should be a tensor of inputs and a tensor of corresponding targets.
+<br> 
+Here is an example of how to train a CNN using PyTorch:
+
+<pre><code class="python">import torch
+
+# Define the model
+model = torch.nn.Sequential(
+    torch.nn.Conv2d(3, 16, 3, padding=1),
+    torch.nn.ReLU(),
+    torch.nn.MaxPool2d(2),
+    torch.nn.Flatten(),
+    torch.nn.Linear(16 * 16 * 16, 128),
+    torch.nn.ReLU(),
+    torch.nn.Linear(128, 10)
+)
+
+# Define the loss function
+loss_fn = torch.nn.CrossEntropyLoss()
+
+# Define the optimizer
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+
+# Define the training data
+inputs = torch.randn(100, 3, 32, 32)
+targets = torch.randint(10, (100,))
+
+# Training loop
+for i in range(100):
+    # Compute the output of the model
+    output = model(inputs)
+
+    # Compute the loss
+    loss = loss_fn(output, targets)
+
+    # Zero the gradients of the model
+    optimizer.zero_grad()
+
+    # Compute the gradients of the model
+    loss.backward()
+
+    # Update the model's parameters
+    optimizer.step()
+
+</code></pre>
+In this example, we define a simple CNN with 3 convolutional layers, a max pooling layer, and 2 fully-connected layers. We then define a cross-entropy loss function and an SGD optimizer, and generate some random training data. Finally, we train the model by looping over the training data, computing the output and loss, computing the gradients, and updating the model's parameters.
+<br>
+Note that when training a CNN, it is important to normalize the input data and to use data augmentation techniques to avoid overfitting. You can learn more about these techniques in the PyTorch documentation.
 
 </div>  <!-- End page -->
 <!-- enable comments -->
