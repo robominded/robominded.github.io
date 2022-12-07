@@ -1,0 +1,50 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Federated Learning</p>
+
+<p>		
+    Federated learning is a machine learning technique that allows multiple parties to train a machine learning model without sharing their data with each other. In federated learning, each party trains a local model on its own data and then shares the model updates with the other parties. The parties then use these updates to improve the overall performance of the model without having to share their data directly. This approach has several advantages, including improved privacy, better data security, and the ability to train models on data that may be distributed across different locations.
+</p><br>
+Here are a few examples of how federated learning can be used:
+<ul>
+<li>
+    A healthcare organization wants to build a machine learning model that can predict a patient's likelihood of developing a certain disease. However, the organization's data is distributed across multiple hospitals and clinics, and it is not possible to share the data due to privacy regulations. In this scenario, federated learning can be used to train the machine learning model without having to share the data. Each hospital or clinic can train a local model on its own data, and the model updates can be shared with the other hospitals and clinics to improve the overall performance of the model.
+</li>
+<li>
+    A retail company wants to build a machine learning model that can predict customer purchasing behavior. The company's data is distributed across multiple stores, and it is not feasible to share the data due to the large amount of data involved. In this scenario, federated learning can be used to train the machine learning model without having to share the data. Each store can train a local model on its own data, and the model updates can be shared with the other stores to improve the overall performance of the model.
+</li>
+<li>
+    An education organization wants to build a machine learning model that can predict a student's likelihood of success in a certain course. The organization's data is distributed across multiple schools, and it is not possible to share the data due to privacy regulations. In this scenario, federated learning can be used to train the machine learning model without having to share the data. Each school can train a local model on its own data, and the model updates can be shared with the other schools to improve the overall performance of the model.
+</li>
+</ul>
+
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+
