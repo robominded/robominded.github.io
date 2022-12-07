@@ -1,0 +1,54 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Deep Learning Overview</p>
+
+<p>		
+    A recurrent neural network (RNN) is a type of artificial neural network that is designed to process sequential data, such as text, speech, or time series data. Unlike a traditional feedforward neural network, which accepts a fixed-sized input and produces a fixed-sized output, an RNN can accept a variable-sized input and produce a variable-sized output.
+</p><br>
+<p>
+The basic building block of an RNN is the recurrent neuron, which has the ability to maintain a state that encodes information about past inputs. This state is updated at each time step, based on the current input and the previous state of the neuron. The output of the RNN at each time step is a function of the current input and the current state of the network.
+</p><br>
+<p>
+One of the key advantages of RNNs is that they can learn to recognize patterns in sequential data that are long-range and non-local in nature. For example, an RNN can learn to translate a sentence from one language to another by considering the entire sentence at once, rather than processing it one word at a time. This makes RNNs well-suited for tasks such as language translation, language modeling, and speech recognition.
+</p><br>
+<p>
+Training an RNN can be challenging, because the error gradients that are used to update the network's weights can vanish or explode over time. This is known as the vanishing gradients problem, and it can prevent the network from learning effectively. One solution to this problem is to use a variant of the RNN known as a long short-term memory (LSTM) network, which uses special units called LSTM cells to control the flow of information through the network.
+</p><br>
+<p>
+In a LSTM network, each LSTM cell has several different components, including an input gate, an output gate, and a forget gate. The input gate controls the flow of information into the cell, the output gate controls the flow of information out of the cell, and the forget gate controls which information is retained in the cell state and which is discarded. This allows the LSTM cell to selectively preserve important information and discard irrelevant information, which helps to prevent the vanishing gradients problem.
+</p><br>
+<p>
+In addition to LSTM networks, there are also other types of RNNs that have been developed to address the vanishing gradients problem, such as gated recurrent units (GRUs) and neural history compressors (NHCs). These networks use different architectures and mechanisms to control the flow of information through the network, but they all have the same goal of improving the ability of the network to learn from sequential data.
+</p><br>
+<p>
+If you want to learn more about recurrent neural networks, there are many resources available online, including tutorials and academic papers. I would recommend starting with a simple tutorial to get a basic understanding of how RNNs work, and then moving on to more advanced materials as you gain more knowledge and experience.
+</p><br>
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+

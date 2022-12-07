@@ -1,0 +1,55 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Deep Learning Overview</p>
+
+<p>		
+ A convolutional neural network (CNN) is a type of artificial neural network that is commonly used in computer vision tasks. It is designed to process data that has a grid-like structure, such as an image.
+</p><br>
+<p>
+The basic building block of a CNN is the convolutional layer, which applies a set of filters to the input data and produces a set of output maps. Each filter is a small matrix that slides across the input data, performing a dot product between the entries of the filter and the input data at each position. This operation is called a convolution.
+</p><br>
+<p>
+The output of the convolutional layer is typically passed through a non-linear function called an activation function, which introduces non-linearities into the network and allows it to learn complex patterns in the data. The output of the activation function is then fed into the next layer of the network, which repeats the process of convolution and activation.
+</p><br>
+<p>
+One of the key advantages of CNNs is that they can learn to recognize spatial hierarchies in data. For example, a CNN can learn to detect edges in an image, and then use those edges to detect more complex shapes, and so on. This allows CNNs to perform very well on a wide range of tasks, such as image classification and object detection.
+</p><br>
+<p>
+In addition to the convolutional layers, a typical CNN also includes pooling layers, which down-sample the output of the convolutional layers, and fully connected layers, which combine the outputs of the pooling layers and produce the final output of the network.
+</p><br>
+<p>
+One of the challenges in training a CNN is choosing the right set of filters to use in the convolutional layers. In order to learn to recognize patterns in the data, the filters must be initialized with random values, and then adjusted during the training process using an optimization algorithm. The optimization algorithm is typically some variant of stochastic gradient descent, which adjusts the filters based on the error between the predicted output of the network and the correct output.
+</p><br>
+<p>
+If you want to learn more about convolutional neural networks, there are many resources available online, including tutorials and academic papers. I would recommend starting with a simple tutorial to get a basic understanding of how CNNs work, and then moving on to more advanced materials as you gain more knowledge and experience.
+</p><br>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+

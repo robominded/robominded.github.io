@@ -1,0 +1,100 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">PyTorch</p>
+    <!-- <img  src="images/snake2.png" /> -->
+		
+<!-- Start a section -->
+<div class="sectionHeader headerTextColor"> PyTorch Overview </div>
+PyTorch is an open-source machine learning library for Python. It is primarily developed by Facebook's artificial intelligence research group, and is used for natural language processing and computer vision. PyTorch provides a convenient and powerful framework for training and evaluating deep learning models, and is widely used in research and industry.
+<br>
+One of the main features of PyTorch is its dynamic computational graph, which allows users to define and modify the structure of their neural networks on the fly. This is in contrast to other deep learning libraries, such as TensorFlow, which use static computational graphs, where the structure of the network must be defined before the model is trained. This makes PyTorch well-suited for applications such as natural language processing, where the input data can have variable length, and the structure of the network needs to be able to adapt to the length of the input.
+<br>
+To illustrate this, consider the following example in PyTorch, where we define a simple one-layer neural network that takes as input a sequence of word embeddings and outputs a prediction for each word in the sequence:
+<br>
+<pre><code class="python">import torch
+
+# Define the input and output sizes
+input_size = 100
+output_size = 10
+
+# Define the neural network
+model = torch.nn.Linear(input_size, output_size)
+
+# Define the input data
+input_data = torch.randn(10, input_size)
+
+# Compute the output of the network
+output = model(input_data)
+</code></pre>
+
+In this example, we define a linear neural network with 100 input units and 10 output units. We then generate some random input data and use the model() function to compute the output of the network. Because PyTorch uses a dynamic computational graph, we can define and modify the structure of the network on the fly, without having to re-compile the model.
+<br>
+Another important feature of PyTorch is its support for automatic differentiation, which allows users to easily compute the gradient of a neural network with respect to its parameters. This is useful for training deep learning models, as it allows us to use gradient-based optimization algorithms, such as stochastic gradient descent (SGD), to find the values of the network's parameters that minimize a loss function.
+<br>
+To illustrate this, let's continue the example above and define a loss function and use SGD to train the network:
+<pre><code class="python">
+import torch
+
+# Define the input and output sizes
+input_size = 100
+output_size = 10
+
+# Define the neural network
+model = torch.nn.Linear(input_size, output_size)
+
+# Define a loss function
+loss_fn = torch.nn.MSELoss()
+
+# Define the optimizer
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+
+# Generate some random training data
+input_data = torch.randn(10, input_size)
+target_output = torch.randn(10, output_size)
+
+# Training loop
+for i in range(100):
+    # Compute the output of the network
+    output = model(input_data)
+
+    # Compute the loss
+    loss = loss_fn(output, target_output)
+
+    # Zero the gradients of the network
+    optimizer.zero_grad()
+
+    # Compute the gradients of the network
+    loss.backward()
+
+    # Update the network parameters
+    optimizer.step()    
+</code></pre>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
