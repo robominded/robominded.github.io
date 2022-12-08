@@ -1,0 +1,53 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">What is Hugging Face?</p>
+
+<p>		
+Hugging Face is a technology company that focuses on natural language processing (NLP). They provide a platform for developing and deploying NLP models, including tools for training and evaluating models, as well as an open-source library of pre-trained models that can be used for a variety of NLP tasks.
+</p><br>
+<p>
+To use Hugging Face, you can start by installing the transformers library, which provides access to the pre-trained models. Then, you can use the pipeline method to quickly and easily apply one of the pre-trained models to a text input. For example, you can use a pre-trained model to perform tasks like sentiment analysis, named entity recognition, or text summarization.
+</p><br>
+<p>
+Here's an example of how you might use the pipeline method to perform named entity recognition on some text:
+<pre><code class="python">from transformers import pipeline
+
+    nlp = pipeline("ner")
+    result = nlp("Hugging Face is a technology company based in New York City")    
+</code></pre>
+    
+In this example, the `nlp` object is a named entity recognition model that has been pre-trained by Hugging Face. The result variable will contain the named entities that were detected in the input text, along with their corresponding labels (e.g. "ORG" for organization, "LOC" for location, etc.).
+<br>
+<p>
+    You can find more detailed instructions for using Hugging Face on their website: https://huggingface.co/transformers/usage.html.
+</p><br>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+
