@@ -26,6 +26,21 @@
 <div class="grayBackground">
 	<div class="page">
 		<p class="headerTextColor lessonHeader">SARSA</p>
+<p>
+SARSA is a reinforcement learning algorithm that is used to learn the optimal action-selection policy for a given Markov Decision Process (MDP). It is an "on-policy" learning algorithm, which means that it learns the optimal policy while following it.
+</p><br>
+<p>
+The basic idea behind SARSA is to learn an estimate of the state-action value function, or Q-function, for a given MDP. The Q-function is a mathematical function that takes in a state and an action, and returns the expected long-term reward for taking that action in that state. The goal of SARSA is to find the Q-function that will maximize the expected long-term reward for a given MDP.
+</p><br>
+<p>
+To do this, SARSA uses an iterative update rule to improve the estimate of the Q-function over time. At each iteration, the algorithm takes an action in the current state, observes the resulting reward and next state, and then updates the Q-function estimate using the observed reward and the expected long-term reward for the next action chosen using the current Q-function estimate. This update rule is applied repeatedly until the Q-function converges to the optimal Q-function for the MDP.
+</p><br>
+<p>
+One key advantage of SARSA is that it is an "on-policy" learning algorithm, which means that it learns the optimal policy while following it. This can make it more stable and easier to converge to the optimal policy compared to "off-policy" learning algorithms, which can sometimes experience instability or divergence. Additionally, SARSA is a model-based algorithm, which means that it requires a model of the environment in order to learn the optimal policy. This can make it more efficient in environments where the dynamics are known or can be accurately modeled.
+</p><br>
+<p>      
+Overall, SARSA is a powerful and widely-used reinforcement learning algorithm that is well-suited to a variety of environments and tasks. It is simple to implement and has been applied successfully to a wide range of real-world problems, including robot control, game playing, and autonomous vehicles.
+</p><br>
 
 
 <div class="sectionHeader headerTextColor"> Utility Functions </div>

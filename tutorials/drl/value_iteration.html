@@ -26,7 +26,23 @@
 
 <div class="page">
     <p class="headerTextColor lessonHeader">Value Iteration</p>
-    <div class="sectionHeader headerTextColor"> The Grid World Environment </div>
+<p>
+Value iteration is a reinforcement learning algorithm that is used to solve Markov Decision Processes (MDPs). It is a type of dynamic programming algorithm that works by iteratively improving the estimate of the optimal value function for a given MDP.
+</p><br>
+<p>
+To understand how value iteration works, it's important to first understand the concept of a value function in reinforcement learning. A value function is a mathematical function that takes in a state and action, and returns the expected long-term reward for taking that action in that state. The goal of reinforcement learning is to find the optimal value function, which is the function that will maximize the expected long-term reward for a given MDP.
+</p><br>
+<p>
+Value iteration is an algorithm for finding the optimal value function for an MDP. It works by iteratively updating the value of each state in the MDP, based on the values of the states that can be reached from that state. The algorithm starts by initializing the value of each state to some initial value, and then repeatedly updates the values of each state based on a simple update rule: the value of a state is equal to the maximum expected long-term reward of any action that can be taken in that state.
+</p><br>
+<p>
+This update rule is applied iteratively until the values of the states converge to a fixed point, at which point the algorithm has found the optimal value function for the MDP. This convergence can be shown to occur in a finite number of iterations, so value iteration is guaranteed to find the optimal value function for any MDP.
+</p><br>
+<p>
+In practice, value iteration is often used as a subroutine in more complex reinforcement learning algorithms. It is simple to implement and converges quickly, making it a useful building block for more advanced reinforcement learning algorithms. However, it is not always the most efficient algorithm for solving MDPs, and other algorithms such as policy iteration and Q-learning may be more suitable for some tasks.
+</p><br>
+ 
+<div class="sectionHeader headerTextColor"> The Grid World Environment </div>
 
 <pre> <code class="python">import numpy as np
 
