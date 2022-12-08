@@ -1,0 +1,91 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">What is continuous integration and delivery (CI/CD)?</p>
+
+<p>		
+    Continuous integration and delivery (CI/CD) is a set of practices that combine software development and IT operations. The goal of CI/CD is to automate and accelerate the software delivery process, from code creation to deployment.
+</p><br>
+<p>
+    In a CI/CD workflow, developers regularly integrate their code changes into a shared code repository. Each time code is integrated, an automated build process is triggered, which compiles the code and runs tests to ensure that it is working as expected. If the tests pass, the code can be automatically deployed to a staging or production environment.
+</p><br>
+<p>
+    For example, suppose a team of developers is working on a web application. Each developer writes code on their own local machine, and then pushes their changes to a shared code repository hosted on a Git platform like GitHub. As soon as a developer pushes their code, a CI/CD tool like Jenkins or Azure DevOps is notified and automatically pulls the code from the repository. The tool then runs a series of tests to ensure that the code is working as expected, and if the tests pass, the code is automatically deployed to a staging server where it can be tested by QA engineers. If the code passes QA, it can be automatically deployed to production.
+</p><br>
+<p>
+    Using CI/CD can help teams to deliver software faster and more reliably, by automating and streamlining many of the tasks involved in the software development process.
+</p><br>
+
+<p class="headerTextColor lessonHeader">What is Jenkins?</p>
+
+<p>
+    Jenkins is an open-source automation server that is commonly used for continuous integration and delivery (CI/CD) purposes. Jenkins allows organizations to automate many of the tasks involved in the software development process, such as building code, running tests, and deploying code to production.
+</p><br>
+<p>
+    To use Jenkins, organizations first need to install the Jenkins server on a machine. This machine can be a local server, a cloud-based server, or a virtual machine. Once the Jenkins server is installed, it can be configured to run a series of jobs. A job is a defined task that Jenkins can execute, such as building code, running tests, or deploying code.
+</p><br>
+<p>
+    Here is an example of a Jenkins job that builds and deploys a Python web application:
+</p>
+<pre><code class="python">pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+        steps {
+            // Build the code using pip
+            sh 'pip install -r requirements.txt'
+        }
+        }
+    
+        stage('Test') {
+        steps {
+            // Run the unit tests using pytest
+            sh 'pytest'
+        }
+        }
+    
+        stage('Deploy') {
+        steps {
+            // Deploy the code to a Gunicorn server
+            sh 'gunicorn app:app'
+        }
+        }
+    }
+    }
+    
+</code></pre>
+<p>
+    In this example, the Jenkins pipeline is defined using the Jenkins Pipeline DSL. The pipeline has three stages: build, test, and deploy. In the build stage, the code is built using the pip package manager. In the test stage, the unit tests are run using pytest. In the deploy stage, the code is deployed to a Gunicorn web server.
+</p><br>
+<p>
+    Using Jenkins, organizations can automate many of the tasks involved in the software development process, and can easily extend Jenkins with plugins to support additional tools and technologies. 
+</p> <br>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>

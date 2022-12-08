@@ -1,0 +1,74 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">PyTorch</p>
+    <!-- <img  src="images/snake2.png" /> -->
+<p>		
+    Docker is a tool that allows developers to easily deploy their applications in a portable and isolated environment known as a container. This means that the code that runs in a Docker container is guaranteed to run the same way, regardless of the environment in which it is deployed.
+</p><br>
+<p>		
+    Here's a simple example of how you might use Docker with a Python application. Let's say you have a Python application that you want to package and deploy in a Docker container. First, you would create a Dockerfile that specifies the instructions for building the Docker image for your Python application. This Dockerfile might look something like this:
+</p><br>
+
+<pre><code class="python">FROM python:3.7-slim
+
+COPY requirements.txt /app/
+
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+COPY . /app
+
+CMD ["python", "app.py"]
+    
+</code></pre>
+
+<p>		
+This Dockerfile specifies that the Docker image should be based on the python:3.7-slim image, which provides a minimal Python 3.7 environment. It then copies the requirements.txt file, which contains the dependencies for your Python application, and installs them using pip. Finally, it copies the rest of your application code into the image and specifies that the app.py script should be run when the container is started.
+</p><br>
+
+<p>
+To build the Docker image for your Python application, you would run the following command:
+</p>
+<pre><code class="shell">$ docker build -t my-python-app 
+</code></pre>
+<p>
+    This command will create a Docker image named my-python-app based on the instructions in the Dockerfile. Once the image has been built, you can run it using the docker run command, like this:
+</p><br>
+<pre><code class="shell">$ docker run -p 8000:8000 my-python-app
+</code></pre>
+<p>
+    This will start a Docker container based on the my-python-app image and bind it to port 8000 on your local machine. You can then access your Python application by navigating to http://localhost:8000 in a web browser.
+</p><br>
+<p>
+    Overall, Docker makes it easy to package and deploy your Python applications in a consistent and portable manner. This can be especially useful when working in a team, as it ensures that everyone is running the same version of the code and dependencies.
+</p><br>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
