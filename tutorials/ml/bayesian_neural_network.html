@@ -1,0 +1,77 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+<div class="page">
+    <p class="headerTextColor lessonHeader">Convolutional Neural Network (CNN) Overview</p>
+
+<p>	
+A Bayesian neural network is a type of neural network that is able to estimate uncertainty in its predictions by using Bayesian inference. In a Bayesian neural network, each weight and bias parameter is treated as a random variable, and a probability distribution is used to represent the uncertainty in their values. This allows the network to make more confident predictions when it is able to predict with high certainty, and to make more conservative predictions when it is less certain.
+</p><br>
+
+<p>
+Here is a simple example of a Bayesian neural network implemented in TensorFlow Probability, a library for probabilistic programming in TensorFlow:
+</p>
+
+<pre><code class="python">import tensorflow as tf
+import tensorflow_probability as tfp
+
+# Define the model architecture.
+model = tf.keras.Sequential([
+    tfp.layers.DenseReparameterization(units=10, activation=tf.nn.relu),
+    tfp.layers.DenseReparameterization(units=1)
+])
+
+# Compile the model with a Gaussian negative log likelihood loss function.
+model.compile(optimizer=tf.optimizers.Adam(learning_rate=0.1),
+              loss=lambda y, p_y: -p_y.log_prob(y))
+
+# Train the model on some data.
+x = ... # Input features
+y = ... # Target values
+model.fit(x, y, epochs=100)
+
+# Use the model to make predictions on new data.
+x_new = ... # New input features
+y_hat, y_hat_std = model(x_new, return_std=True)
+</code></pre>
+
+
+<p>
+In this example, we define a simple two-layer neural network using the DenseReparameterization layers from TensorFlow Probability. These layers allow us to perform Bayesian inference on the weights and biases of the network by defining priors over their values and using gradient-based optimization to find the posterior distributions.
+</p><br>
+
+<p>
+During training, we use a Gaussian negative log likelihood loss function, which allows us to compute the likelihood of the target values given the predicted values. This loss function is optimized using the Adam optimizer.
+</p><br>
+
+<p>
+Once the model is trained, we can use it to make predictions on new data by calling the model and setting the return_std argument to True, which will return both the predicted values and the uncertainty in those predictions.
+</p>
+
+</div>  <!-- End page -->
+<!-- enable comments -->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
+
