@@ -27,7 +27,7 @@
             The Policy Gradient Theorem is a significant result in the field of reinforcement learning, specifically for policy gradient methods. The theorem furnishes us with an equation to compute the gradient of the expected cumulative reward with respect to the policy parameters. These gradients are then employed to refine the policy, incrementally adjusting it to maximize the expected return.
             The theorem formally states that:
 
-            $$ J(\theta) = \mathbb{E}_{\pi}[R_t|s=s_0, a=\pi(s;\theta)] $$
+            $$ \nabla_{\theta} J(\theta) = \mathbb{E}_{\pi}[R_t|s=s_0, a=\pi(s;\theta)] $$
 
             In this equation, \( \nabla_{\theta} J(\theta) \) represents the gradient of the expected return \( J(\theta) \) with respect to the policy parameters \( \theta \). \( \mathbb{E}_{\pi}[...] \) signifies taking an expectation under policy  \( \pi \), which essentially means averaging over a lot of instances following policy  \( \pi \).  
             <br /> 
