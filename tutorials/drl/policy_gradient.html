@@ -65,15 +65,17 @@
 
     <div class="sectionHeader headerTextColor"> REINFORCE </div>
         <p>
-        REINFORCE is a particular policy gradient method introduced by Ronald Williams in 1992. The term REINFORCE is an acronym, standing for "REward Increment = Nonnegative Factor × Offset Reinforcement × Characteristic Eligibility".
+        REINFORCE is a particular policy gradient method introduced by Ronald Williams in 1992. The term REINFORCE is an acronym, standing for "REward Increment = Nonnegative Factor x Offset Reinforcement x Characteristic Eligibility".
 
         In the REINFORCE algorithm, the gradient of the expected return is estimated for each episode, and the policy is updated at the end of the episode. The update rule for REINFORCE can be summarized as follows:
         
-        ∇_θ J(θ) = Eπ[∇_θ log π(a_t|s_t;θ) * G_t]
+        $$
+        \nabla_{\theta} J(\theta) = \mathbb{E}_{\pi}[\nabla_{\theta} \log \pi(a_t|s_t;\theta) * G_t]
+        $$
         
-        Here, G_t is the return from time step t, and ∇_θ log π(a_t|s_t;θ) is the gradient of the log-probability of taking action a_t in state s_t under policy π.
+        Here, \( G_t \) is the return from time step \( t \), and \( \nabla_{\theta} \log \pi(a_t|s_t;\theta) \) is the gradient of the log-probability of taking action \( a_t \) in state \( s_t \) under policy \( \pi \).
         
-        This rule implies that if the return G_t is higher than expected, the probability of selecting action a_t in state s_t should be increased, and vice versa.
+        This rule implies that if the return \( G_t \) is higher than expected, the probability of selecting action \( a_t \) in state \( s_t \) should be increased, and vice versa.
         </p>
 
     <div class="sectionHeader headerTextColor"> Explanation for a Layman </div>
