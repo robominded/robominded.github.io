@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">	
+    <!-- the following three lines to enable public comments -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/agate.min.css">
+
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/header.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Amiko&family=Michroma&family=Rajdhani&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Gudea|Reem+Kufi|Rajdhani" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script> $(function(){ $("#include_header").load("../../pageElements/header.html"); }); </script> 
+    <script> $(function(){ $("#include_footer").load("../../pageElements/footer.html"); }); </script> 
+	<title>roboMind</title>
+</head>
+
+<body>
+<div id="include_header"></div>
+
+
+
+
+<div class="page">
+	<p class="headerTextColor lessonHeader">Policy Gradient Algorithms</p>
+
+    The Policy Gradient Theorem is a significant result in the field of reinforcement learning, specifically for policy gradient methods. The theorem furnishes us with an equation to compute the gradient of the expected cumulative reward with respect to the policy parameters. These gradients are then employed to refine the policy, incrementally adjusting it to maximize the expected return.
+
+    The theorem formally states that:
+    
+    $$ J(\theta) = \mathbb{E}_{\pi}[R_t|s=s_0, a=\pi(s;\theta)] $$
+
+    
+    In this equation, \( \nabla_{\theta} J(\theta) \) represents the gradient of the expected return \( J(\theta) \) with respect to the policy parameters \( \theta \). \( \mathbb{E}_{\pi}[...] \) signifies taking an expectation under policy  \( \pi \), which essentially means averaging over a lot of instances following policy  \( \pi \).  <br /> 
+    
+    The term \( \nabla_{\theta} \log \pi(a_t|s_t;\theta) \) is the gradient of the log-probability of selecting action \( a_t \) at state \( s_t \) given the policy  \( \pi \) parameterized by  \( \theta \). It shows how much the log-probability of the action changes as we slightly modify the policy parameters. <br /> 
+
+    The term \( Q^{\pi}(s_t, a_t) \) is the action-value function under policy  \( \pi \). This function evaluates the expected return from state \( s_t \), taking action \( a_t \) and following policy  \( \pi \) thereafter. It provides a measure of how good it is to take a particular action in a specific state under policy  \( \pi \).  <br /> 
+
+
+
+
+
+<div class="sectionHeader headerTextColor">Policy Gradient Theorem </div>
+<p> Text...</p>
+
+<div class="sectionHeader headerTextColor">Section Header </div>
+
+<p> Text...</p>
+
+<pre> <code class="python">print("PYTHON Code")
+
+</code> </pre>
+		
+
+
+
+
+
+<!------------Comments------------->
+
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
