@@ -1,0 +1,180 @@
+body, html, a, p, div, img {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Rajdhani;
+    font-size: 1.2em;
+    color: #5D5B5B; /* Warm Gray */
+}
+
+.page{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+/* -------------------Page header------------------- */
+.header {
+    width: 100%;
+    background-image: url('../images/header.jpeg');
+    background-size: cover;
+    border: 1px solid #D98275;
+    min-height: 300px;
+}
+
+.titleText {
+    font-size: 3.6em;
+    font-family: 'Amiko', sans-serif;
+    /* line-height: 240px; */
+    letter-spacing: 2px;
+}
+
+.vertical-center-flex {
+    display: flex;
+    flex-direction: column; /* This will stack children vertically */
+    align-items: center; /* To center items horizontally */
+    justify-content: center; /* To center items vertically */
+}
+
+.subTitleText {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8C4A32; /* Darker Warm Red */
+    letter-spacing: 2px;
+}
+
+/* -------------------Widget------------------- */
+.widget {
+    width: 341px;
+    height: 500px;
+    display: inline-block;
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #FaFaFa; /* Off White */
+}
+
+.widget a {
+    text-decoration: none;
+}
+
+.widget_img {
+    height: 40%;
+    overflow: hidden;
+}
+
+.widget_img img {
+    max-width: 100%;
+}
+
+.widget_head {
+    padding: 6px;
+    height: 14%;
+    color: #D98275; /* Warm Red */
+}
+
+.widget_body {
+    padding: 6px;
+    height: 46%;
+    text-align: justify;
+    font-size: .9em;
+}
+
+
+#patents ul {
+    list-style-type: none;
+}
+
+.clearFloat:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.page_header {
+    font-size: 1.8em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bolder;
+}
+
+
+.card {
+    width: 200px;
+    height: 300px;
+    background-color: #FFF;
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.projectDescription, .projectImage {
+    display: inline-block;
+    padding: 6px;
+    font-family: Arial, sans-serif;
+}
+
+.projectDescription {
+    width: 64%;
+    color: #5D5B5B; /* Warm Gray */
+    font-size: .9em;
+    line-height: 1.3em;
+}
+
+.projectDescription p {
+    text-align: justify;
+}
+
+.projectImage {
+    height: 100%;
+    overflow: auto;
+    width: 30%;
+    vertical-align: top;
+}
+
+.projectImage img {
+    width: 100%;
+}
+
+.links a{
+    font-weight: bold;
+    color: #FFF;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin: 4px 2px;
+    border-radius: 6px;
+}
+
+.links a:hover {
+    background-color: #8C4A32; /* Darker Warm Red */
+}
+
+.orange_text {
+    color: #8C4A32; /* Warm Red */
+}
+
+.white_text {
+    color: #FFF;
+}
+
+.orange_background {
+    background-color: #8C4A32; /* Warm Red */
+}
+
+.text_algin_center {
+    text-align: center;
+}
+
+.boldText, .font1_25em, .padding1emTop, .padding_5em, .text_align_center, .grayBackground {
+    /* These classes can be used for specific styling as needed */
+}

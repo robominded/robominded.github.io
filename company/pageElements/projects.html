@@ -1,0 +1,118 @@
+<div id="projects" class="page">
+	<p class="headerTextColor lessonHeader">Projects</p>
+	
+    <!-- Poject Start -->
+	<div onclick="collapsible(this)"  class="moduleHeader collapsible">
+         O_Robot: A MSP432-based differential drive robot 
+	</div>
+	<div class="module content">
+			<p class="projectDescription" >
+                In this project, I modeled a differential drive robots using nested <code>C</code> structs. Then, I used PID controllers to develop basic robotic behaviors such as go-to-goal and obstacles
+                avoidance.  I used TI RSLK an MSP432-based robot. O_Robot senses the world through three infrared sensors. <br>
+                This project can be used for educational purposes such teaching (i) differential drive robot kinematics, (ii) translation between different frame of references, (iii) basic control theory.  
+			</p> 
+			<img class="projectImage" src="images/ti_robot.jpeg"> 
+		<div class="links">
+			<a target="_blank" href="https://github.com/amjadmajid/O_Robot"> Code</a> 
+			<a target="_blank" href="https://www.youtube.com/watch?v=fOMYusDR_QA"> Video</a> 
+		</div>
+	</div>		
+	
+    <!-- Poject Start -->
+	<div onclick="collapsible(this)" class="moduleHeader collapsible">
+        R_Car: Raspberry Pi Remotely Controlled Car with Object Detection   
+	</div>
+	<div class="module content">
+			<p class="projectDescription" >
+                In this project I developed a Raspberry pi based robot car that can detect and classify objects. For that it uses SSD Mobilenet which is trained on the COCO dataset. 
+                The code is written in <code>Python</code> using single and multiple processes approaches. The car is controlled by a Joystick via a bluetooth connection. <br>
+                The project can be used for educational purposes such as teaching (i) realtime systems, (ii) basic deep learning concepts, and (iii) some basic concepts in robotics.   
+			</p> 
+			<img class="projectImage" src="images/rpi_car.jpeg"> 
+		<div class="links">
+			<a target="_blank" href="https://github.com/amjadmajid/Remote-Controlled-Car-With-Object-Detection-Capabilities"> Code</a> 
+			<a target="_blank" href="https://www.youtube.com/watch?v=BlLFRxf8Bks"> Video</a> 
+		</div>
+	</div>		
+	<div class="font12em padding1em links"> For more see <a href="https://github.com/amjadmajid?tab=repositories"> Projects ...</a> </div>
+
+	<div class="moduleHeader collapsible active" onclick="collapsible(this)">
+		Covy: An AI-powered Robot with a Compound Vision System for Detecting Breaches in Social Distancing
+	</div>
+	<div class="module content">
+		<img class="projectImage" src="images/covy.jpg">
+		<p class="projectDescription">
+			In this work, we introduce a compound vision algorithm that doubles the effective range of Intel RealSense depth camera. 
+			And, we propose a robust navigation stack that combines Deep Reinforcement Learning (DRL) and the probabilistic localization method AMCL.
+		</p> 
+		<div class="links">
+			<a target="_blank" href="https://arxiv.org/pdf/2207.06847.pdf"> Paper</a>  
+			<a target="_blank" href="https://github.com/amjadmajid/deepRL"> Code</a> 
+			<a  target="_blank" href="https://www.youtube.com/watch?v=qWvmsRvSDh8"> Video</a> 
+		</div>
+	</div>				
+
+	<div class="moduleHeader collapsible" onclick="collapsible(this)">
+		Deep Reinforcement Learning VS Evolution Strategies: A Comparative Survey
+	</div>
+	<div class="module content">
+		<p class="projectDescription">
+			Deep Reinforcement Learning (DRL) and Evolution Strategies (ESs) have surpassed human-level control 
+			in many sequential decision-making problems, yet many open challenges still exist. To get insights 
+			into the strengths and weaknesses of DRL versus ESs, an analysis of their respective capabilities 
+			and limitations is provided. After presenting their fundamental concepts and algorithms, a comparison 
+			is provided on key aspects such as scalability, exploration, adaptation to dynamic environments, and 
+			multi-agent learning. Key current research challenges ... 			
+		</p> 
+		<img class="projectImage" src="images/drl.jpeg">
+		<div class="links">
+			<a target="_blank" href="https://arxiv.org/abs/2110.01411"> Paper</a>  
+		</div>
+	</div>
+
+	<div class="moduleHeader collapsible" onclick="collapsible(this)">
+		Lightweight Audio Source Localization for Swarm Robots
+	</div>
+	<div class="module content">
+		<img class="projectImage" src="images/audioCar.jpeg">
+		<p class="projectDescription">
+		The ability to localize a sound source is essential for safe integration of robots in our society.
+		However, its high computational demand makes it challenging to equip small swarm robots with such capability. 
+		Therefore, this paper investigates potential means for developing a lightweight sound source localization method. It introduces 
+		the Cutting The Plane (CTP) algorithm which leverages recent advancements in embedded microphone technology to reduce 
+		the computation complexity of audio source localization. We analyzed its performance and compared it to a software-based approach using simulation. Finally, we performed tests on real hardware to show the feasibility of using our system for relative localization between swarm robots. 
+		</p> 
+		<div class="links">
+			<a target="_blank" href="https://ieeexplore.ieee.org/abstract/document/9369572"> Paper</a>  
+			<!-- <a href="#"> Code</a>  -->
+			<a  target="_blank" href="https://www.youtube.com/watch?v=p80CDeFy-nA"> Video</a> 
+		</div>
+	</div>				
+
+	<div class="moduleHeader collapsible" onclick="collapsible(this)">
+		Batteryless Swarm Robots
+	</div>
+	<div class="module content">
+			<p class="projectDescription" >
+			Tiny robots can be used for different applications such as surveillance and search and rescue operations. 
+			However, these robots have limited operation time due their limited energy storage.
+			In this work، we drop batteries and use renewable energy instead.
+			Using solar energy to power tiny robots makes them operate <i>intermittently</i> but for unlimited period of time. 
+			The developed light-powered battery-free robot uses non-volatile memory to save the movement progress across power failures.
+			The robot shows minimal increased deviation from its instructed path when compared to its battery powered equivalent.
+			</p> 
+			<img class="projectImage" src="images/IpRobot.jpg"> 
+		<div class="links">
+			<a href="https://github.com/amjadmajid/ipRobot/blob/master/Latex/Thesis/Final_Thesis_Koen_Schaper_11-12-2017.pdf"> Paper</a> 
+			<a href="https://github.com/amjadmajid/ipRobot"> Code</a> 
+			<a href="https://www.youtube.com/watch?v=y_XJqmQksVs"> Video</a> 
+		</div>
+	</div>		
+	
+	<div class="font12em padding1em links"> For more see <a href="https://scholar.google.com/citations?user=hVezSVIAAAAJ&hl=en"> Google Scholar ...</a> </div>
+
+
+
+</div>
+
+

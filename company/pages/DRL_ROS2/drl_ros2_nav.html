@@ -1,0 +1,55 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+<!------------------These relative links MUST be modified ---v-------------------------->
+<!------------------These relative links MUST be modified --vvv------------------------->
+<!------------------These relative links MUST be modified -vvvvv------------------------->
+
+<script> $(function(){ $("#header_meta_info").load("../../pageElements/page_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+<title>roboMind</title>
+<div id="header_meta_info"></div>
+</head>
+
+<body>
+<div id="include_header"></div> 
+
+
+
+
+<div class="page">
+    <div class="page_header orange_text">Policy Gradient Algorithms</div>
+
+        <p>
+            The Policy Gradient Theorem is a significant result in the field of reinforcement learning, specifically for policy gradient methods. The theorem furnishes us with an equation to compute the gradient of the expected cumulative reward with respect to the policy parameters. These gradients are then employed to refine the policy, incrementally adjusting it to maximize the expected return.
+            The theorem formally states that:
+
+            $$ \nabla_{\theta} J(\theta) = \mathbb{E}_{\pi}[R_t|s=s_0, a=\pi(s;\theta)] $$
+
+            In this equation, \( \nabla_{\theta} J(\theta) \) represents the gradient of the expected return \( J(\theta) \) with respect to the policy parameters \( \theta \). \( \mathbb{E}_{\pi}[...] \) signifies taking an expectation under policy  \( \pi \), which essentially means averaging over a lot of instances following policy  \( \pi \).  
+            <br /> 
+            The term \( \nabla_{\theta} \log \pi(a_t|s_t;\theta) \) is the gradient of the log-probability of selecting action \( a_t \) at state \( s_t \) given the policy  \( \pi \) parameterized by  \( \theta \). It shows how much the log-probability of the action changes as we slightly modify the policy parameters. 
+            <br /> 
+            The term \( Q^{\pi}(s_t, a_t) \) is the action-value function under policy  \( \pi \). This function evaluates the expected return from state \( s_t \), taking action \( a_t \) and following policy  \( \pi \) thereafter. It provides a measure of how good it is to take a particular action in a specific state under policy  \( \pi \).  <br /> 
+        </p>
+
+</div> <!------------End of page------------->
+
+
+
+<!------------Comments------------->
+<script src="https://utteranc.es/client.js"
+        repo="robominded/robominded.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- page footer -->
+<div id="include_footer"></div>
+
+</body>
+</html>
