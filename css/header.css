@@ -29,10 +29,12 @@
 .researchMessage{
 	display: inline-block; 
 	width: 80%; 
+	height: 86px;
 	background-color:#fff;
 	padding: 12px;
 	font-family: Arial, sans-serif;
 	color:rgb(93, 91, 91);
 	font-size: .9em;
 	line-height: 1.4em;
+	border-top: 2px solid #cc0066;
 }

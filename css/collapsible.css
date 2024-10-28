@@ -1,5 +1,5 @@
 .collapsible {
-    background-color: #e5e5e5;
+    background-color: #f1f1f1;
     color: black;
     cursor: pointer;
     padding: 12px;
@@ -14,9 +14,15 @@
   }
   
   .active, .collapsible:hover {
-    background-color: rgb(147, 147, 147);
+    background-color: rgb(165, 158, 158);
     color: white;
   }
+
+.module.content {
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
   
   .collapsible:before{
     content: '\22C1';
