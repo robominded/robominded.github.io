@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Chosen Palette: Slate & Sky Blue -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script> $(function(){ $("#header_tutorials").load("../../../pageElements/tutorials_meta_info.html"); }); </script> 
+<script> $(function(){ $("#include_header").load("../../../pageElements/header.html"); }); </script> 
+<script> $(function(){ $("#include_footer").load("../../../pageElements/footer.html"); }); </script> 
+<script>hljs.highlightAll();</script>
+
+  <!-- Chosen Palette: Slate & Sky Blue -->
     <!-- Application Structure Plan: The SPA is designed as an interactive explainer. The core is a horizontal, clickable flow diagram representing the model's architecture. This is more intuitive for understanding a process than a linear document. Users click a component (e.g., "Vision Encoder") in the diagram, and a dedicated content area below updates with detailed text. This 'drill-down' interaction prevents information overload and encourages active exploration. A bar chart is included to visually and conceptually ground the model's primary benefit—generalization—making the abstract concept more tangible. This structure was chosen to guide the user through the data flow sequentially while allowing them to focus on one component at a time, enhancing comprehension and engagement. -->
     <!-- Visualization & Content Choices: 
         - Overall Architecture -> Goal: Organize -> Method: Interactive HTML/CSS flow diagram. Interaction: Click to show details. Justification: Visually represents the data path, which is central to the model's function. It's more engaging than text alone. Method: Tailwind Flexbox.
@@ -16,6 +18,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<div id="header_tutorials"></div>
+</head>
+
+<body>
+<div id="include_header"></div>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
